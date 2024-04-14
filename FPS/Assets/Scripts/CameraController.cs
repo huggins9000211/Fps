@@ -11,6 +11,10 @@ public class CameraController : MonoBehaviour
     int lockVertMin, lockVertMax;
     [SerializeField]
     bool invertY;
+    [SerializeField]
+    GameObject gunOffset;
+
+
 
     float rotX;
 
@@ -40,6 +44,7 @@ public class CameraController : MonoBehaviour
 
         //rotate the cam on the x-axis
         transform.localRotation = Quaternion.Euler(rotX, 0, 0);
+        gunOffset.transform.localRotation = transform.localRotation;
 
         //rotate the player on the y-axis
         transform.parent.Rotate(Vector3.up * mouseX);

@@ -22,13 +22,13 @@ public class BasePlayer : MonoBehaviour, IDamage
 
     Vector3 moveDir;
     Vector3 playerVel;
-
+    protected int jumpsAllowed;
     int jumpedTimes;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        jumpsAllowed = 1;
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class BasePlayer : MonoBehaviour, IDamage
 
     }
 
-    void Movement()
+    protected void Movement()
     {
         if (characterController.isGrounded)
         {
@@ -58,7 +58,7 @@ public class BasePlayer : MonoBehaviour, IDamage
         characterController.Move(moveDir * speed * Time.deltaTime);
 
 
-        if (Input.GetButtonDown("Jump") && jumpedTimes < 1)
+        if (Input.GetButtonDown("Jump") && jumpedTimes < jumpsAllowed)
         {
             jumpedTimes++;
             playerVel.y = jumpSpeed;
