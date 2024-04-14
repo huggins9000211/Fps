@@ -47,6 +47,6 @@ public class CameraController : MonoBehaviour
         gunOffset.transform.localRotation = transform.localRotation;
 
         //rotate the player on the y-axis
-        transform.parent.Rotate(Vector3.up * mouseX);
+        transform.parent.parent.Rotate(Vector3.up * mouseX);
     }
 }
