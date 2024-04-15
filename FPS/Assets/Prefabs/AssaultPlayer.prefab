@@ -167,6 +167,10 @@ MonoBehaviour:
   shootPos: {fileID: 7006353217683631470}
   shootRate: 0.15
   bullet: {fileID: 6413510540981947320, guid: 92f1bf596381e7142ae54efec9bf9e96, type: 3}
+  grenade: {fileID: 1415556611663978, guid: 216ec6e5fef3e254d86b21071e614d66, type: 3}
+  grenadeVelocity: 12
+  grenadeCD: 10
+  granadeDirection: {x: 0, y: 1, z: 0}
 --- !u!33 &3694877246329996949
 MeshFilter:
   m_ObjectHideFlags: 0

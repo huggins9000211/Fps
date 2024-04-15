@@ -5,8 +5,10 @@ using UnityEngine;
 public class Grenade : MonoBehaviour
 {
     [SerializeField] float explosionDelay;
-    [SerializeField] float explosionForce;
+    [SerializeField] float explosionDamage;
     [SerializeField] float explosionRadius;
+
+    [SerializeField] GameObject explosionPrefab;
 
 
     float countdown;
@@ -21,19 +23,19 @@ public class Grenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasExploded == false)
-        {
+       
             countdown -= Time.deltaTime;
             if (countdown <= 0)
             {
-                hasExploded = true;
+                Explode();
             }
-        }
+    
     }
 
     void Explode()
     {
-
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
 
