@@ -8,17 +8,12 @@ public class Recoil : MonoBehaviour
     Vector3 currentRotation;
     Vector3 targetRotation;
 
-    [SerializeField] 
-    float recoilX;
-    [SerializeField]
-    float recoilY;
-    [SerializeField]
-    float recoilZ;
+    [SerializeField] float recoilX;
+    [SerializeField] float recoilY;
+    [SerializeField] float recoilZ;
 
-    [SerializeField]
-    float snappiness;
-    [SerializeField]
-    float returnSpeed;
+    [SerializeField] float snappiness;
+    [SerializeField] float returnSpeed;
 
 
     // Start is called before the first frame update

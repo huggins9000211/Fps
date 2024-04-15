@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class NinjaPlayer : BasePlayer
 {
-    [SerializeField]
-    Transform shootPos;
-    [SerializeField]
-    float shootRate;
-    [SerializeField]
-    GameObject bullet;
+    [SerializeField] Transform shootPos;
+    [SerializeField] float shootRate;
+    [SerializeField] GameObject bullet;
 
     bool isShooting; 
     // Start is called before the first frame update

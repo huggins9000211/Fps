@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class BaseNPC : MonoBehaviour, IDamage
 {
-    [SerializeField]
-    Renderer model;
+    [SerializeField] Renderer model;
 
-    [SerializeField]
-    int hP;
+    [SerializeField] int hP;
 
 
     // Start is called before the first frame update

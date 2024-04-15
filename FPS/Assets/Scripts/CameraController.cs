@@ -5,14 +5,10 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]
-    int sensitivity;
-    [SerializeField]
-    int lockVertMin, lockVertMax;
-    [SerializeField]
-    bool invertY;
-    [SerializeField]
-    GameObject gunOffset;
+    [SerializeField] int sensitivity;
+    [SerializeField] int lockVertMin, lockVertMax;
+    [SerializeField] bool invertY;
+    [SerializeField] GameObject gunOffset;
 
 
 

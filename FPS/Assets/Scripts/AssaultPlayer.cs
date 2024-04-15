@@ -5,12 +5,9 @@ using UnityEngine;
 public class AssaultPlayer : BasePlayer
 {
     // Start is called before the first frame update
-    [SerializeField]
-    Transform shootPos;
-    [SerializeField]
-    float shootRate;
-    [SerializeField]
-    GameObject bullet;
+    [SerializeField] Transform shootPos;
+    [SerializeField] float shootRate;
+    [SerializeField] GameObject bullet;
 
     bool isShooting;
     private Recoil recoilScript;

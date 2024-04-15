@@ -5,18 +5,13 @@ using UnityEngine;
 public class BasePlayer : MonoBehaviour, IDamage
 {
 
-    [SerializeField]
-    CharacterController characterController;
+    [SerializeField] CharacterController characterController;
 
-    [SerializeField]
-    int hP;
-    [SerializeField]
-    int speed;
-    [SerializeField]
-    int gravity;
+    [SerializeField] int hP;
+    [SerializeField] int speed;
+    [SerializeField] int gravity;
 
-    [SerializeField]
-    int jumpSpeed;
+    [SerializeField] int jumpSpeed;
 
 
 
