@@ -7,9 +7,13 @@ public class DoorController : MonoBehaviour
 
     [SerializeField] int timer;
 
+    [SerializeField] Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
+        //anim = gameObject.GetComponent<Animator>();
+        anim.speed = 0;
         StartCoroutine(DoorTimer());
     }
 
@@ -36,7 +40,9 @@ public class DoorController : MonoBehaviour
     {
         if(gameObject != null)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            //anim.Play("Scene");
+            anim.speed = 1;
         }
     }
 }
