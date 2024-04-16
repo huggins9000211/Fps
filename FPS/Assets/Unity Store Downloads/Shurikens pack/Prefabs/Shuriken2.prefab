@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -6167668165275624426}
-  damage: 1
+  damage: 20
   speed: 5
   destroyTime: 20
 --- !u!54 &-6167668165275624426
