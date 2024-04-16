@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 8336356935474983577}
-  hP: 10
+  hP: 200
   speed: 10
   gravity: 25
   jumpSpeed: 12

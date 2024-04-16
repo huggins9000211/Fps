@@ -6,7 +6,7 @@ public class BaseNPC : MonoBehaviour, IDamage
 {
     [SerializeField] Renderer model;
 
-    [SerializeField] int hP;
+    [SerializeField] public int hP;
 
 
     // Start is called before the first frame update
