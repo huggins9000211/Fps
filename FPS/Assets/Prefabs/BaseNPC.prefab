@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 7028481243896851008}
-  hP: 20
+  hP: 200
 --- !u!33 &6668349327612369826
 MeshFilter:
   m_ObjectHideFlags: 0

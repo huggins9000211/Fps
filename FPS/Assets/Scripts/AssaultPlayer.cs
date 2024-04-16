@@ -13,6 +13,7 @@ public class AssaultPlayer : BasePlayer
     [SerializeField] float grenadeCD;
     [SerializeField] Vector3 granadeDirection;
     bool isShooting;
+    bool granadeOnCD;
     Recoil recoilScript;
     Camera mainCamera;
 
@@ -33,7 +34,7 @@ public class AssaultPlayer : BasePlayer
         {
             StartCoroutine(Shoot1());
         }
-        else if (Input.GetButton("Fire2") & !isShooting)
+        else if (Input.GetButton("Fire2") & !granadeOnCD)
         {
             StartCoroutine(Shoot2());
         }
@@ -51,13 +52,13 @@ public class AssaultPlayer : BasePlayer
     IEnumerator Shoot2()
     {
 
-        isShooting = true;
+        granadeOnCD = true;
         Vector3 spawnPosition = shootPos.position + mainCamera.transform.forward;
         GameObject spawnedGrenade = Instantiate(grenade, spawnPosition, mainCamera.transform.rotation);
         Rigidbody rb = spawnedGrenade.GetComponent<Rigidbody>();
         Vector3 finalThrowDirection = (mainCamera.transform.forward + granadeDirection).normalized;
         rb.AddForce(finalThrowDirection * grenadeVelocity, ForceMode.VelocityChange);
         yield return new WaitForSeconds(grenadeCD);
-        isShooting = false;
+        granadeOnCD = false;
     }
 }

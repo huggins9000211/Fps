@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 1765368464519847656}
-  hP: 10
+  hP: 200
   speed: 10
   gravity: 25
   jumpSpeed: 12
@@ -203,6 +203,7 @@ MonoBehaviour:
   lockVertMin: -90
   lockVertMax: 90
   invertY: 0
+  gunOffset: {fileID: 0}
 --- !u!20 &2096247854334994760
 Camera:
   m_ObjectHideFlags: 0
