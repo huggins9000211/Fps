@@ -8,7 +8,7 @@ public class BasePlayer : MonoBehaviour, IDamage
     [SerializeField] CharacterController characterController;
 
     [SerializeField] int hP;
-    [SerializeField] int speed;
+    [SerializeField] float speed;
     [SerializeField] int gravity;
 
     [SerializeField] int jumpSpeed;
@@ -62,5 +62,24 @@ public class BasePlayer : MonoBehaviour, IDamage
 
         playerVel.y -= gravity * Time.deltaTime;
         characterController.Move(playerVel * Time.deltaTime);
+    }
+
+    public void Stun(float duration)
+    {
+        StartCoroutine(ApplyStun(duration));
+    }
+
+    IEnumerator ApplyStun(float duration)
+    {
+        Camera mainCamera = Camera.main;
+        CameraController characterController = mainCamera.GetComponent<CameraController>();
+        float baseSens = characterController.GetSens();
+        float baseSpeed = speed;
+
+        characterController.SetSens(baseSens * .5f);
+        speed *= .5f;
+        yield return new WaitForSeconds(duration);
+        characterController.SetSens(baseSens);
+        speed = baseSpeed;
     }
 }
