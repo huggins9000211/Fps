@@ -40,9 +40,9 @@ public class DoorController : MonoBehaviour
     {
         if(gameObject != null)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
             //anim.Play("Scene");
-            anim.speed = 1;
+            //anim.speed = 1;
         }
     }
 }

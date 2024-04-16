@@ -203,6 +203,7 @@ MonoBehaviour:
   lockVertMin: -90
   lockVertMax: 90
   invertY: 0
+  gunOffset: {fileID: 0}
 --- !u!20 &2096247854334994760
 Camera:
   m_ObjectHideFlags: 0
