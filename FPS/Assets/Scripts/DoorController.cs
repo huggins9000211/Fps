@@ -7,13 +7,13 @@ public class DoorController : MonoBehaviour
 
     [SerializeField] int timer;
 
-    [SerializeField] Animator anim;
+    //[SerializeField] Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         //anim = gameObject.GetComponent<Animator>();
-        anim.speed = 0;
+        //anim.speed = 0;
         StartCoroutine(DoorTimer());
     }
 
