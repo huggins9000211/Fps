@@ -8,15 +8,21 @@ public class AssaultPlayer : BasePlayer
     [SerializeField] Transform shootPos;
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
-
+    [SerializeField] GameObject grenade;
+    [SerializeField] float grenadeVelocity;
+    [SerializeField] float grenadeCD;
+    [SerializeField] Vector3 granadeDirection;
     bool isShooting;
-    private Recoil recoilScript;
+    bool granadeOnCD;
+    Recoil recoilScript;
+    Camera mainCamera;
 
     // Start is called before the first frame update
     void Start()
     {
         base.jumpsAllowed = 1;
         recoilScript = transform.Find("Recoil").GetComponent<Recoil>();
+        mainCamera = Camera.main;
     }
 
     // Update is called once per frame
@@ -28,10 +34,10 @@ public class AssaultPlayer : BasePlayer
         {
             StartCoroutine(Shoot1());
         }
-        //else if (Input.GetButton("Fire2") & !isShooting)
-        //{
-        //    StartCoroutine(Shoot2());
-        //}
+        else if (Input.GetButton("Fire2") & !granadeOnCD)
+        {
+            StartCoroutine(Shoot2());
+        }
     }
 
     IEnumerator Shoot1()
@@ -43,16 +49,16 @@ public class AssaultPlayer : BasePlayer
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
-    //IEnumerator Shoot2()
-    //{
-    //    isShooting = true;
+    IEnumerator Shoot2()
+    {
 
-    //    Instantiate(bullet, shootPos.position, shootPos.rotation);
-
-    //    Instantiate(bullet, shootPos.position, shootPos.rotation).transform.Rotate(0, 20, 0);
-
-    //    Instantiate(bullet, shootPos.position, shootPos.rotation).transform.Rotate(0, -20, 0);
-    //    yield return new WaitForSeconds(shootRate);
-    //    isShooting = false;
-    //}
+        granadeOnCD = true;
+        Vector3 spawnPosition = shootPos.position + mainCamera.transform.forward;
+        GameObject spawnedGrenade = Instantiate(grenade, spawnPosition, mainCamera.transform.rotation);
+        Rigidbody rb = spawnedGrenade.GetComponent<Rigidbody>();
+        Vector3 finalThrowDirection = (mainCamera.transform.forward + granadeDirection).normalized;
+        rb.AddForce(finalThrowDirection * grenadeVelocity, ForceMode.VelocityChange);
+        yield return new WaitForSeconds(grenadeCD);
+        granadeOnCD = false;
+    }
 }

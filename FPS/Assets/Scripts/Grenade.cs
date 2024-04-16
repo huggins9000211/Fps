@@ -5,8 +5,10 @@ using UnityEngine;
 public class Grenade : MonoBehaviour
 {
     [SerializeField] float explosionDelay;
-    [SerializeField] float explosionForce;
+    [SerializeField] int explosionDamage;
     [SerializeField] float explosionRadius;
+
+    [SerializeField] GameObject explosionPrefab;
 
 
     float countdown;
@@ -21,19 +23,32 @@ public class Grenade : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasExploded == false)
-        {
+       
             countdown -= Time.deltaTime;
             if (countdown <= 0)
             {
-                hasExploded = true;
+                Explode();
             }
-        }
+    
     }
 
     void Explode()
     {
 
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, explosionRadius);
+        foreach (var hitCollider in hitColliders)
+        {
+
+            IDamage dmg = hitCollider.GetComponent<IDamage>();
+
+            if (dmg != null)
+            {
+                dmg.TakeDamage(explosionDamage);
+                Destroy(gameObject);
+            }
+        }
+        Destroy(gameObject);
     }
 }
 

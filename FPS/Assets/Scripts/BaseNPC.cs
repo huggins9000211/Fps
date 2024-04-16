@@ -39,4 +39,24 @@ public class BaseNPC : MonoBehaviour, IDamage
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
     }
+
+    public void Stun(float duration)
+    {
+        ApplyStun(duration);
+    }
+
+    IEnumerator ApplyStun(float duration)
+    {
+        //
+
+
+
+
+
+
+
+        //
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(duration);
+    }
 }
