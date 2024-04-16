@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BasePlayer : MonoBehaviour, IDamage
 {
-
     [SerializeField] CharacterController characterController;
 
     [SerializeField] int hP;
@@ -23,6 +22,7 @@ public class BasePlayer : MonoBehaviour, IDamage
     // Start is called before the first frame update
     void Start()
     {
+        characterController = GetComponent<CharacterController>();
         jumpsAllowed = 1;
     }
 

@@ -16,12 +16,11 @@ public class SniperMine : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-         Collider other = collision.collider;
         IDamage dmg = other.GetComponent<IDamage>();
-
-        if (dmg != null)
+        SniperPlayer isSniper = other.GetComponent<SniperPlayer>();
+        if (dmg != null && isSniper==null)
         {
             BasePlayer hitPlayer = other.GetComponent<BasePlayer>();
             if (hitPlayer == null)
@@ -30,7 +29,5 @@ public class SniperMine : MonoBehaviour
                 hitPlayer.Stun(3f);
             Destroy(gameObject);
         }
-
-
     }
 }

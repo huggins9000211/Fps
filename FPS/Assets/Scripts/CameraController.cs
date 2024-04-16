@@ -43,7 +43,16 @@ public class CameraController : MonoBehaviour
         gunOffset.transform.localRotation = transform.localRotation;
 
         //rotate the player on the y-axis
-        transform.parent.Rotate(Vector3.up * mouseX);
+
+        CharacterController hasRecoil = transform.parent.GetComponent<CharacterController>();
+        if (hasRecoil != null)
+        {
+            transform.parent.Rotate(Vector3.up * mouseX);
+        }
+        else
+        {
+            transform.parent.parent.Rotate(Vector3.up * mouseX);
+        }
     }
 
     public void SetSens(float sens)

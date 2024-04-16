@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8513797096703225121}
   - component: {fileID: 9129309034755351384}
   - component: {fileID: 1731330866905573378}
+  - component: {fileID: -2176549414141557958}
   m_Layer: 0
   m_Name: at_mine_LOD0
   m_TagString: Player
@@ -147,4 +148,25 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.326142, y: 0.09444399, z: 0.367784}
+  m_Center: {x: 0, y: 0.0012139995, z: -0.010956988}
+--- !u!65 &-2176549414141557958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119916}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0.0012139995, z: -0.010956988}
