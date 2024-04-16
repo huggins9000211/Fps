@@ -6,7 +6,7 @@ public class BasePlayer : MonoBehaviour, IDamage
 {
     [SerializeField] CharacterController characterController;
 
-    [SerializeField] int hP;
+    [SerializeField] public int hP;
     [SerializeField] float speed;
     [SerializeField] int gravity;
 
