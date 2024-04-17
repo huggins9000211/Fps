@@ -5,11 +5,15 @@ using UnityEngine.UI;
 using TMPro;
 
 
+
 public class LoadPrefs : MonoBehaviour
 {
+    public static LoadPrefs instance;
+
     [Header("General Setting")]
     [SerializeField] private bool canUse = false;
     [SerializeField] private MainMenuController mainMenuController;
+    [SerializeField] private CharacterSelection characterSelection;
 
 
     [Header("Volume Setting")]
@@ -34,6 +38,10 @@ public class LoadPrefs : MonoBehaviour
 
     [Header("Invert Y Setting")]
     [SerializeField] private Toggle invertYToggle = null;
+
+    [Header("PlayerSelect")]
+    [SerializeField] public GameObject[] _selectableCharacter;
+    [SerializeField] private int _selectedCharacterInt = 0;
 
     private void Awake()
     {
@@ -110,5 +118,15 @@ public class LoadPrefs : MonoBehaviour
                 invertYToggle.isOn = false;
             }
         }
+
+        if (PlayerPrefs.HasKey("selectedCharacterInt"))
+        {
+            _selectedCharacterInt = PlayerPrefs.GetInt("SelectedCharacterInt");
+        }
+        else  
+            PlayerPrefs.GetInt("SelectedCharacterInt",_selectedCharacterInt);
     }
+
+
+   
 }
