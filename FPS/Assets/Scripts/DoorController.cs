@@ -14,6 +14,7 @@ public class DoorController : MonoBehaviour
     {
         //anim = gameObject.GetComponent<Animator>();
         //anim.speed = 0;
+        GameManager.instance.SpawnDoorCount(1);
         StartCoroutine(DoorTimer());
     }
 
@@ -33,6 +34,7 @@ public class DoorController : MonoBehaviour
         }
         else if (timer <= 0)
         {
+            GameManager.instance.SpawnDoorCount(-1);
             DoorOpen();
         }
     }

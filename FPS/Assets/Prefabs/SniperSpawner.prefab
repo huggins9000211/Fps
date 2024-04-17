@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7288707405499844274}
+  - component: {fileID: 2813558108194594715}
   m_Layer: 0
   m_Name: SniperSpawner
   m_TagString: Untagged
@@ -31,3 +32,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2813558108194594715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8048048551933120990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9403de2251f6da0409c8ef2f6a37367d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sniperEnemy: {fileID: 6936094408994961642, guid: b6bd42197839c814a9d76a7d9b48e55e, type: 3}
+  sniperPlayer: {fileID: 6243081663306818582, guid: d7c67dd4bb053fc4fa9e762c2c0dcb17, type: 3}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2253258023646941230}
-  - component: {fileID: -4483368602241680187}
+  - component: {fileID: -555587405815933045}
   m_Layer: 0
   m_Name: AssaultSpawner
   m_TagString: Spawner
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4483368602241680187
+--- !u!114 &-555587405815933045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +41,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 830557797928685825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 964aa2a394a55b04b80a52e19969d503, type: 3}
+  m_Script: {fileID: 11500000, guid: 8314a67dd4ff8944b8bcec4c6946a4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assaultEnemy: {fileID: 6936094408994961642, guid: b6bd42197839c814a9d76a7d9b48e55e, type: 3}
+  assaultPlayer: {fileID: 3164022534556450118, guid: 4c911066a28e13c45ab19ab1b7295c96, type: 3}

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 529013798867337477}
+  - component: {fileID: 4272870161859226399}
   m_Layer: 0
   m_Name: NinjaSpawner
   m_TagString: Untagged
@@ -31,3 +32,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4272870161859226399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8801340032832197417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fa5a61c0dbfcc4088dfa571abeb824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ninjaEnemy: {fileID: 6936094408994961642, guid: b6bd42197839c814a9d76a7d9b48e55e, type: 3}
+  ninjaPlayer: {fileID: 6637923324307406554, guid: 596a8be90ad8ffb48a82adef86e13c5c, type: 3}

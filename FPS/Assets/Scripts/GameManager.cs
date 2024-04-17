@@ -5,29 +5,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject assaultSpawner;
-    [SerializeField] GameObject ninjaSpawner;
-    [SerializeField] GameObject sniperSpawner;
-    [SerializeField] GameObject reaperSpawner;
+    // ReaperScore, etc variables
+    [SerializeField] AssaultSpawner assaultSpawner;
+    [SerializeField] NinjaSpawner ninjaSpawner;
+    [SerializeField] SniperSpawner sniperSpawner;
+    [SerializeField] ReaperSpawner reaperSpawner;
 
     public static GameManager instance;
-
-    [SerializeField] GameObject assaultEnemy;
-    [SerializeField] GameObject ninjaEnemy;
-    [SerializeField] GameObject sniperEnemy;
-    [SerializeField] GameObject reaperEnemy;
 
     public GameObject Player;
 
 
 
     public bool isPaused;
-    int playerType;
+    public int playerType;
     int enemyCount;
+    int spawnDoorCount;
     // Start is called before the first frame update
     void Awake()
     {
         instance = this;
+        SpawnPlayers();
         Player = GameObject.FindWithTag("Player");
     }
 
@@ -61,46 +59,87 @@ public class GameManager : MonoBehaviour
         //menuActive.SetActive(isPaused);
         //menuActive = null;
     }
+    public void SpawnDoorCount(int amount)
+    {
+        spawnDoorCount += amount;
+
+        if(spawnDoorCount <= 0)
+        {
+            //SpawnPlayers();
+        }
+    }
     void SpawnPlayers()
     {
         switch (playerType)
         {
             case 0:
-                SpawnNinja();
-                SpawnSniper();
-                SpawnReaper();
+                SpawnAssault(true);
+                SpawnNinja(false);
+                SpawnSniper(false);
+                SpawnReaper(false);
                 break;
             case 1:
-                SpawnAssault();
-                SpawnSniper();
-                SpawnReaper();
+                SpawnAssault(false);
+                SpawnNinja(true);
+                SpawnSniper(false);
+                SpawnReaper(false);
                 break;
             case 2:
-                SpawnAssault();
-                SpawnNinja();
-                SpawnReaper();
+                SpawnAssault(false);
+                SpawnNinja(false);
+                SpawnSniper(true);
+                SpawnReaper(false);
                 break;
             case 3:
-                SpawnAssault();
-                SpawnNinja();
-                SpawnSniper();
+                SpawnAssault(false);
+                SpawnNinja(false);
+                SpawnSniper(false);
+                SpawnReaper(true);
                 break;
         }
     }
-    void SpawnAssault()
+    public void SpawnAssault(bool isPlayer)
     {
-        Instantiate(assaultEnemy, assaultSpawner.transform.position, transform.rotation);
+        if (isPlayer)
+        {
+            assaultSpawner.SpawnPlayer();
+        }
+        else
+        {
+            assaultSpawner.SpawnNPC();
+        }
     }
-    void SpawnNinja()
+    public void SpawnNinja(bool isPlayer)
     {
-        Instantiate(ninjaEnemy, assaultSpawner.transform.position, transform.rotation);
+        if (isPlayer)
+        {
+            ninjaSpawner.SpawnPlayer();
+        }
+        else
+        {
+            ninjaSpawner.SpawnNPC();
+        }
     }
-    void SpawnSniper()
+    public void SpawnSniper(bool isPlayer)
     {
-        Instantiate(sniperEnemy, assaultSpawner.transform.position, transform.rotation);
+        if (isPlayer)
+        {
+            sniperSpawner.SpawnPlayer();
+        }
+        else
+        {
+            sniperSpawner.SpawnNPC();
+        }
     }
-    void SpawnReaper()
+    public void SpawnReaper(bool isPlayer)
     {
-        Instantiate(reaperEnemy, assaultSpawner.transform.position, transform.rotation);
+        if (isPlayer)
+        {
+            reaperSpawner.SpawnPlayer();
+        }
+        else
+        {
+            reaperSpawner.SpawnNPC();
+        }
     }
 }
