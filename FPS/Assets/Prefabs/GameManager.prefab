@@ -44,5 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00a6b766b01bca43a113fb8d9d14eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  assaultSpawner: {fileID: 830557797928685825, guid: 231d1973f4d9b6545b24d3f96d966866, type: 3}
+  ninjaSpawner: {fileID: 8801340032832197417, guid: af84c9f1b89ddc14a83606b947a3d116, type: 3}
+  sniperSpawner: {fileID: 8048048551933120990, guid: 8aee868c741c47e45a340933a2d69f42, type: 3}
+  reaperSpawner: {fileID: 1008287584128260460, guid: 8f0c8ef1c3a86364cb8c00dac4a172d5, type: 3}
+  assaultEnemy: {fileID: 2586560738715678472, guid: b6bd42197839c814a9d76a7d9b48e55e, type: 3}
+  ninjaEnemy: {fileID: 2586560738715678472, guid: b6bd42197839c814a9d76a7d9b48e55e, type: 3}
+  sniperEnemy: {fileID: 2586560738715678472, guid: b6bd42197839c814a9d76a7d9b48e55e, type: 3}
+  reaperEnemy: {fileID: 2586560738715678472, guid: b6bd42197839c814a9d76a7d9b48e55e, type: 3}
   Player: {fileID: 0}
   isPaused: 0
