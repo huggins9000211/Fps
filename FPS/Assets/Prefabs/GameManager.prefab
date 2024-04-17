@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4861927280938429904}
   - component: {fileID: 1726987517840205165}
+  - component: {fileID: 1833199004776243045}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00a6b766b01bca43a113fb8d9d14eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuActive: {fileID: 0}
+  menuPause: {fileID: 0}
+  menuWin: {fileID: 0}
+  menuLose: {fileID: 0}
   assaultSpawner: {fileID: 0}
   ninjaSpawner: {fileID: 0}
   sniperSpawner: {fileID: 0}
@@ -51,3 +56,15 @@ MonoBehaviour:
   Player: {fileID: 0}
   isPaused: 0
   playerType: 0
+--- !u!114 &1833199004776243045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636382206047936748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab49205913d93b54fb6c5d75fa1399f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

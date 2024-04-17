@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // ReaperScore, etc variables
+
+    [SerializeField] GameObject menuActive;
+    [SerializeField] GameObject menuPause;
+    [SerializeField] GameObject menuWin;
+    [SerializeField] GameObject menuLose;
+
     [SerializeField] AssaultSpawner assaultSpawner;
     [SerializeField] NinjaSpawner ninjaSpawner;
     [SerializeField] SniperSpawner sniperSpawner;
@@ -44,8 +49,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Cancel") && Time.timeScale == 1) // Temp replacement // && menuActive == null)
         {
             StatePaused();
-            //menuActive = menuPause;
-            //menuActive.SetActive(isPaused);
+            menuActive = menuPause;
+            menuActive.SetActive(isPaused);
         }
         else if (Input.GetButtonDown("Cancel") && Time.timeScale == 0) // Temp replacement // && menuActive == menuPause)
         {
@@ -65,8 +70,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        //menuActive.SetActive(isPaused);
-        //menuActive = null;
+        menuActive.SetActive(isPaused);
+        menuActive = null;
     }
     public void SpawnDoorCount(int amount)
     {

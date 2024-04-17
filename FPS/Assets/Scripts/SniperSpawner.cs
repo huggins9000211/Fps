@@ -19,11 +19,11 @@ public class SniperSpawner : MonoBehaviour
     }
     public void SpawnNPC()
     {
-        Instantiate(sniperEnemy, gameObject.transform);
+        Instantiate(sniperEnemy, transform.position, Quaternion.identity);
     }
     public void SpawnPlayer()
     {
-        Instantiate(sniperPlayer, gameObject.transform);
+        Instantiate(sniperPlayer, transform.position, Quaternion.identity);
         GameManager.instance.SetPlayer();
     }
 }

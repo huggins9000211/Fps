@@ -19,11 +19,11 @@ public class ReaperSpawner : MonoBehaviour
     }
     public void SpawnNPC()
     {
-        Instantiate(reaperEnemy, gameObject.transform);
+        Instantiate(reaperEnemy, transform.position, Quaternion.identity);
     }
     public void SpawnPlayer()
     {
-        Instantiate(reaperPlayer, gameObject.transform);
+        Instantiate(reaperPlayer, transform.position, Quaternion.identity);
         GameManager.instance.SetPlayer();
     }
 }
