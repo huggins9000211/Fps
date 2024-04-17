@@ -24,5 +24,6 @@ public class NinjaSpawner : MonoBehaviour
     public void SpawnPlayer()
     {
         Instantiate(ninjaPlayer, gameObject.transform);
+        GameManager.instance.SetPlayer();
     }
 }

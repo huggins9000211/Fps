@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject Player;
 
+    int assaultScore;
+    int ninjaScore;
+    int sniperScore;
+    int reaperScore;
+
 
 
     public bool isPaused;
@@ -26,6 +31,10 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         SpawnPlayers();
+        //SetPlayer();
+    }
+    public void SetPlayer()
+    {
         Player = GameObject.FindWithTag("Player");
     }
 
@@ -140,6 +149,24 @@ public class GameManager : MonoBehaviour
         else
         {
             reaperSpawner.SpawnNPC();
+        }
+    }
+    public void AddScore(int scoreTeam, int points)
+    {
+        switch (scoreTeam)
+        {
+            case 0:
+                assaultScore += points;
+                break;
+            case 1:
+                ninjaScore += points;
+                break;
+            case 2:
+                sniperScore += points;
+                break;
+            case 3:
+                reaperScore += points;
+                break;
         }
     }
 }

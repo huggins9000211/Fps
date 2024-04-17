@@ -24,5 +24,6 @@ public class SniperSpawner : MonoBehaviour
     public void SpawnPlayer()
     {
         Instantiate(sniperPlayer, gameObject.transform);
+        GameManager.instance.SetPlayer();
     }
 }

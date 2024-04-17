@@ -24,5 +24,6 @@ public class AssaultSpawner : MonoBehaviour
     public void SpawnPlayer()
     {
         Instantiate(assaultPlayer, gameObject.transform);
+        GameManager.instance.SetPlayer();
     }
 }

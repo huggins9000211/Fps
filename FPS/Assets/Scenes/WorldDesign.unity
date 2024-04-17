@@ -774,10 +774,6 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
-      propertyPath: playerType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
       propertyPath: ninjaSpawner
       value: 
       objectReference: {fileID: 1637990217}

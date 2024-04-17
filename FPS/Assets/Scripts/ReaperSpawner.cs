@@ -24,5 +24,6 @@ public class ReaperSpawner : MonoBehaviour
     public void SpawnPlayer()
     {
         Instantiate(reaperPlayer, gameObject.transform);
+        GameManager.instance.SetPlayer();
     }
 }
