@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+        playerType = PlayerPrefs.GetInt("selectedCharacterInt", 0);
         SpawnPlayers();
     }
 
