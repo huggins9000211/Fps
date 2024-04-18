@@ -7,13 +7,14 @@ public class DoorController : MonoBehaviour
 
     [SerializeField] int timer;
 
-    [SerializeField] Animator anim;
+    //[SerializeField] Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         //anim = gameObject.GetComponent<Animator>();
-        anim.speed = 0;
+        //anim.speed = 0;
+        GameManager.instance.SpawnDoorCount(1);
         StartCoroutine(DoorTimer());
     }
 
@@ -33,6 +34,7 @@ public class DoorController : MonoBehaviour
         }
         else if (timer <= 0)
         {
+            GameManager.instance.SpawnDoorCount(-1);
             DoorOpen();
         }
     }
@@ -40,9 +42,9 @@ public class DoorController : MonoBehaviour
     {
         if(gameObject != null)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
             //anim.Play("Scene");
-            anim.speed = 1;
+            //anim.speed = 1;
         }
     }
 }

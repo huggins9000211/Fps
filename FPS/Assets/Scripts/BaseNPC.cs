@@ -6,7 +6,7 @@ public class BaseNPC : MonoBehaviour, IDamage
 {
     [SerializeField] Renderer model;
 
-    [SerializeField] int hP;
+    [SerializeField] public int hP;
 
 
     // Start is called before the first frame update
@@ -38,5 +38,25 @@ public class BaseNPC : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
+    }
+
+    public void Stun(float duration)
+    {
+        ApplyStun(duration);
+    }
+
+    IEnumerator ApplyStun(float duration)
+    {
+        //
+
+
+
+
+
+
+
+        //
+        model.material.color = Color.red;
+        yield return new WaitForSeconds(duration);
     }
 }

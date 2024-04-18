@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] int sensitivity;
+    [SerializeField] float sensitivity;
     [SerializeField] int lockVertMin, lockVertMax;
     [SerializeField] bool invertY;
     [SerializeField] GameObject gunOffset;
@@ -43,6 +43,27 @@ public class CameraController : MonoBehaviour
         gunOffset.transform.localRotation = transform.localRotation;
 
         //rotate the player on the y-axis
-        transform.parent.parent.Rotate(Vector3.up * mouseX);
+
+        CharacterController hasRecoil = transform.parent.GetComponent<CharacterController>();
+        if (hasRecoil != null)
+        {
+            transform.parent.Rotate(Vector3.up * mouseX);
+        }
+        else
+        {
+            transform.parent.parent.Rotate(Vector3.up * mouseX);
+        }
     }
+
+    public void SetSens(float sens)
+    {
+        sensitivity = sens;
+    }
+
+    public float GetSens()
+    {
+        return sensitivity;
+    }
+
+
 }
