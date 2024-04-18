@@ -19,6 +19,7 @@ public class CharacterSelection : MonoBehaviour
             i.GetComponent<Rigidbody>().useGravity = false;
         }
         InstantiateChacacter();
+        PlayerPrefs.SetInt("selectedCharacterInt", 0);
     }
     void Update()
     {
