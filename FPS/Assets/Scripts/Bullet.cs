@@ -26,9 +26,10 @@ public class Bullet : MonoBehaviour
         {
             hasDamaged = true;
             dmg.TakeDamage(damage, gameObject);
-            Destroy(gameObject);
+            
         }
+        Destroy(gameObject);
 
- 
+
     }
 }

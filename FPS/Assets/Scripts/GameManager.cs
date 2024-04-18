@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text NinjaScoreHUD;
     [SerializeField] TMP_Text SniperScoreHUD;
     [SerializeField] TMP_Text whoWon;
-
+    [SerializeField] int winNumber;
     public static GameManager instance;
 
     public GameObject player;
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
             case 0:
                 assaultScore += points;
                 AssultScoreHUD.text = assaultScore.ToString("F0");
-                if (assaultScore >= 20)
+                if (assaultScore >= winNumber)
                 {
                     whoWon.text = "Assult Won!";
                     StatePaused();
@@ -185,7 +185,7 @@ public class GameManager : MonoBehaviour
             case 1:
                 ninjaScore += points;
                 NinjaScoreHUD.text = ninjaScore.ToString("F0");
-                if (ninjaScore >= 20)
+                if (ninjaScore >= winNumber)
                 {
                     whoWon.text = "Ninja Won!";
                     StatePaused();
@@ -196,7 +196,7 @@ public class GameManager : MonoBehaviour
             case 2:
                 sniperScore += points;
                 SniperScoreHUD.text = sniperScore.ToString("F0");
-                if (sniperScore >= 20)
+                if (sniperScore >= winNumber)
                 {
                     whoWon.text = "Sniper Won!";
                     StatePaused();
@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
             case 3:
                 reaperScore += points;
                 ReaperScoreHUD.text = reaperScore.ToString("F0");
-                if (sniperScore >= 20)
+                if (sniperScore >= winNumber)
                 {
                     whoWon.text = "Reaper Won!";
                     StatePaused();
