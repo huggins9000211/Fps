@@ -17,13 +17,12 @@ public class NinjaSpawner : MonoBehaviour
     {
 
     }
-    public void SpawnNPC()
+    public GameObject SpawnNPC()
     {
-        Instantiate(ninjaEnemy, transform.position, Quaternion.identity);
+        return Instantiate(ninjaEnemy, transform.position, Quaternion.identity).gameObject;
     }
-    public void SpawnPlayer()
+    public GameObject SpawnPlayer()
     {
-        Instantiate(ninjaPlayer, transform.position, Quaternion.identity);
-        GameManager.instance.SetPlayer();
+        return Instantiate(ninjaPlayer, transform.position, Quaternion.identity).gameObject;
     }
 }

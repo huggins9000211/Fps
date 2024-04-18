@@ -8,18 +8,34 @@ public class BaseNPC : MonoBehaviour, IDamage
 
     [SerializeField] public int hP;
 
-
+    protected GameObject target = null;
     // Start is called before the first frame update
     void Start()
     {
-        
+        //while (target == null)
+        //{
+        //    int randomNum = Random.Range(0, 3);
+        //    if (randomNum == 0)
+        //    {
+        //        target = GameManager.instance.player;
+        //    }
+        //    else if(randomNum == 1 && GameManager.instance.npc1 != gameObject) 
+        //    {
+        //        target = GameManager.instance.npc1;
+        //    }
+        //    else if (randomNum == 2 && GameManager.instance.npc2 != gameObject)
+        //    {
+        //        target = GameManager.instance.npc2;
+        //    }
+        //    else if (randomNum == 3 && GameManager.instance.npc3 != gameObject)
+        //    {
+        //        target = GameManager.instance.npc3;
+        //    }
+        //}
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public void TakeDamage(int amount)
     {

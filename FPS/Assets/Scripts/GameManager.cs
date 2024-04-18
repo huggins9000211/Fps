@@ -18,7 +18,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
-    public GameObject Player;
+    public GameObject player;
+    public GameObject npc1;
+    public GameObject npc2;
+    public GameObject npc3;
 
     int assaultScore;
     int ninjaScore;
@@ -28,7 +31,7 @@ public class GameManager : MonoBehaviour
 
 
     public bool isPaused;
-    public int playerType;
+    public int playerType = 0;
     int enemyCount;
     int spawnDoorCount;
     // Start is called before the first frame update
@@ -37,10 +40,6 @@ public class GameManager : MonoBehaviour
         instance = this;
         SpawnPlayers();
         //SetPlayer();
-    }
-    public void SetPlayer()
-    {
-        Player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -112,48 +111,48 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-    public void SpawnAssault(bool isPlayer)
+    public GameObject SpawnAssault(bool isPlayer)
     {
         if (isPlayer)
         {
-            assaultSpawner.SpawnPlayer();
+           return assaultSpawner.SpawnPlayer();
         }
         else
         {
-            assaultSpawner.SpawnNPC();
+            return assaultSpawner.SpawnNPC();
         }
     }
-    public void SpawnNinja(bool isPlayer)
+    public GameObject SpawnNinja(bool isPlayer)
     {
         if (isPlayer)
         {
-            ninjaSpawner.SpawnPlayer();
+            return ninjaSpawner.SpawnPlayer();
         }
         else
         {
-            ninjaSpawner.SpawnNPC();
+            return ninjaSpawner.SpawnNPC();
         }
     }
-    public void SpawnSniper(bool isPlayer)
+    public GameObject SpawnSniper(bool isPlayer)
     {
         if (isPlayer)
         {
-            sniperSpawner.SpawnPlayer();
+            return sniperSpawner.SpawnPlayer();
         }
         else
         {
-            sniperSpawner.SpawnNPC();
+            return sniperSpawner.SpawnNPC();
         }
     }
-    public void SpawnReaper(bool isPlayer)
+    public GameObject SpawnReaper(bool isPlayer)
     {
         if (isPlayer)
         {
-            reaperSpawner.SpawnPlayer();
+            return reaperSpawner.SpawnPlayer();
         }
         else
         {
-            reaperSpawner.SpawnNPC();
+            return reaperSpawner.SpawnNPC();
         }
     }
     public void AddScore(int scoreTeam, int points)

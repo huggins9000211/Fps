@@ -17,13 +17,12 @@ public class AssaultSpawner : MonoBehaviour
     {
         
     }
-    public void SpawnNPC()
+    public GameObject SpawnNPC()
     {
-        Instantiate(assaultEnemy, transform.position, Quaternion.identity);
+        return Instantiate(assaultEnemy, transform.position, Quaternion.identity).gameObject;
     }
-    public void SpawnPlayer()
+    public GameObject SpawnPlayer()
     {
-        Instantiate(assaultPlayer, transform.position, Quaternion.identity);
-        GameManager.instance.SetPlayer();
+        return Instantiate(assaultPlayer, transform.position, Quaternion.identity).gameObject;
     }
 }
