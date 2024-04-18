@@ -12,6 +12,12 @@ public class LoadPrefs : MonoBehaviour
 
     [Header("General Setting")]
     [SerializeField] private bool canUse = false;
+
+    public LoadPrefs(bool canUse)
+    {
+        this.canUse = canUse;
+    }
+
     [SerializeField] private MainMenuController mainMenuController;
     [SerializeField] private CharacterSelection characterSelection;
 
