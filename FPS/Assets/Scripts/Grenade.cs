@@ -44,7 +44,7 @@ public class Grenade : MonoBehaviour
 
             if (dmg != null)
             {
-                dmg.TakeDamage(explosionDamage);
+                dmg.TakeDamage(explosionDamage, gameObject);
                 Destroy(gameObject);
             }
         }

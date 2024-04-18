@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fefbc031d143704baffd815ecedafeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reaperEnemy: {fileID: 6936094408994961642, guid: b6bd42197839c814a9d76a7d9b48e55e, type: 3}
+  reaperEnemy: {fileID: -3110022463825027211, guid: 168dbbcef0f963e4d841c92b87062ccc, type: 3}
   reaperPlayer: {fileID: 8733864743142207244, guid: 591e89360d7bde944b380ae032528bdc, type: 3}

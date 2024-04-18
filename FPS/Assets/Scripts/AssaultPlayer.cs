@@ -18,8 +18,9 @@ public class AssaultPlayer : BasePlayer
     Camera mainCamera;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         base.jumpsAllowed = 1;
         recoilScript = transform.Find("Recoil").GetComponent<Recoil>();
         mainCamera = Camera.main;
@@ -28,6 +29,7 @@ public class AssaultPlayer : BasePlayer
     // Update is called once per frame
     void Update()
     {
+        mainCamera = Camera.main;
         base.Movement();
 
         if (Input.GetButton("Fire1") & !isShooting)

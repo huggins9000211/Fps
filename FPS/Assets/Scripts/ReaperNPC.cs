@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class ReaperPlayer : BasePlayer
+public class ReaperNPC : BaseNPC
 {
     [SerializeField] GameObject weponPos;
     [SerializeField] float swingRate;
@@ -12,25 +13,52 @@ public class ReaperPlayer : BasePlayer
     bool isStealthed;
     bool isSwinging;
     // Start is called before the first frame update
+    [SerializeField]
+    NavMeshAgent agent;
+    [SerializeField]
+    int faceTargetSpeed;
+    bool targetInRange;
+    Vector3 targetDir;
+
+    // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
-        base.jumpsAllowed = 2;
     }
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        base.Movement();
+        base.Update();
 
-        if (Input.GetButton("Fire1"))
+
+        targetDir = base.target.transform.position - transform.position;
+        agent.SetDestination(GameManager.instance.player.transform.position);
+
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
-            StartCoroutine(Shoot1());
+
+            FaceTarget();
         }
-        else if (Input.GetButton("Fire2"))
+
+        if (agent.remainingDistance < 2)
         {
-            StartCoroutine(Shoot2());
+            if (isSwinging == false)
+                StartCoroutine(Shoot1());
         }
+        if (!isStealthed)
+        {
+
+            if (isSwinging == false)
+                StartCoroutine(Shoot2());
+        }
+
+    }
+
+    void FaceTarget()
+    {
+        Quaternion rot = Quaternion.LookRotation(targetDir);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, Time.deltaTime * faceTargetSpeed);
     }
 
     IEnumerator Shoot1()
@@ -72,7 +100,7 @@ public class ReaperPlayer : BasePlayer
 
     }
 
-    void Unstealth() 
+    void Unstealth()
     {
         isStealthed = false;
         mr.enabled = true;

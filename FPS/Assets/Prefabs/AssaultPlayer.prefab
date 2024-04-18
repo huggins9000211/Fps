@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 8336356935474983577}
   m_Layer: 0
   m_Name: AssaultPlayer
-  m_TagString: Untagged
+  m_TagString: Assult
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

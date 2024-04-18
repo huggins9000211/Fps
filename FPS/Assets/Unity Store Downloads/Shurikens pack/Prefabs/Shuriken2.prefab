@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8756281991626788778}
   m_Layer: 0
   m_Name: Shuriken2
-  m_TagString: Untagged
+  m_TagString: Ninja
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -6167668165275624426}
-  damage: 20
-  speed: 5
+  damage: 30
+  speed: 10
   destroyTime: 20
 --- !u!54 &-6167668165275624426
 Rigidbody:

@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 public class GameManager : MonoBehaviour
 {
 
@@ -15,6 +16,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] NinjaSpawner ninjaSpawner;
     [SerializeField] SniperSpawner sniperSpawner;
     [SerializeField] ReaperSpawner reaperSpawner;
+
+    public GameObject playerDamageScreen; 
+    public Image hpBar;
+    [SerializeField] TMP_Text AssultScoreHUD;
+    [SerializeField] TMP_Text ReaperScoreHUD;
+    [SerializeField] TMP_Text NinjaScoreHUD;
+    [SerializeField] TMP_Text SniperScoreHUD;
+
 
     public static GameManager instance;
 
@@ -39,7 +48,6 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         SpawnPlayers();
-        //SetPlayer();
     }
 
     // Update is called once per frame
@@ -86,28 +94,28 @@ public class GameManager : MonoBehaviour
         switch (playerType)
         {
             case 0:
-                SpawnAssault(true);
-                SpawnNinja(false);
-                SpawnSniper(false);
-                SpawnReaper(false);
+                player = SpawnAssault(true);
+                npc1 = SpawnNinja(false);
+                npc2 = SpawnSniper(false);
+                npc3 = SpawnReaper(false);
                 break;
             case 1:
-                SpawnAssault(false);
-                SpawnNinja(true);
-                SpawnSniper(false);
-                SpawnReaper(false);
+                npc1 = SpawnAssault(false);
+                player = SpawnNinja(true);
+                npc2 = SpawnSniper(false);
+                npc3 = SpawnReaper(false);
                 break;
             case 2:
-                SpawnAssault(false);
-                SpawnNinja(false);
-                SpawnSniper(true);
-                SpawnReaper(false);
+                npc2 = SpawnAssault(false);
+                npc1 = SpawnNinja(false);
+                player = SpawnSniper(true);
+                npc3 = SpawnReaper(false);
                 break;
             case 3:
-                SpawnAssault(false);
-                SpawnNinja(false);
-                SpawnSniper(false);
-                SpawnReaper(true);
+                npc3 = SpawnAssault(false);
+                npc1 = SpawnNinja(false);
+                npc2 = SpawnSniper(false);
+                player = SpawnReaper(true);
                 break;
         }
     }
@@ -115,7 +123,8 @@ public class GameManager : MonoBehaviour
     {
         if (isPlayer)
         {
-           return assaultSpawner.SpawnPlayer();
+           player = assaultSpawner.SpawnPlayer();
+           return player;
         }
         else
         {
@@ -126,7 +135,8 @@ public class GameManager : MonoBehaviour
     {
         if (isPlayer)
         {
-            return ninjaSpawner.SpawnPlayer();
+            player = ninjaSpawner.SpawnPlayer();
+            return player;
         }
         else
         {
@@ -137,7 +147,8 @@ public class GameManager : MonoBehaviour
     {
         if (isPlayer)
         {
-            return sniperSpawner.SpawnPlayer();
+            player = sniperSpawner.SpawnPlayer();
+            return player;
         }
         else
         {
@@ -148,7 +159,8 @@ public class GameManager : MonoBehaviour
     {
         if (isPlayer)
         {
-            return reaperSpawner.SpawnPlayer();
+            player = reaperSpawner.SpawnPlayer();
+            return player;
         }
         else
         {
@@ -161,15 +173,19 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 assaultScore += points;
+                AssultScoreHUD.text = assaultScore.ToString("F0");
                 break;
             case 1:
                 ninjaScore += points;
+                NinjaScoreHUD.text = ninjaScore.ToString("F0");
                 break;
             case 2:
                 sniperScore += points;
+                SniperScoreHUD.text = sniperScore.ToString("F0");
                 break;
             case 3:
                 reaperScore += points;
+                ReaperScoreHUD.text = reaperScore.ToString("F0");
                 break;
         }
     }

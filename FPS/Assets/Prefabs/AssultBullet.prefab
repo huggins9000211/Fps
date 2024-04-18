@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1031209737190419115}
   m_Layer: 0
   m_Name: AssultBullet
-  m_TagString: Untagged
+  m_TagString: Assult
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   rb: {fileID: 1031209737190419115}
   damage: 5
   speed: 20
-  destroyTime: 40
+  destroyTime: 20
 --- !u!54 &1031209737190419115
 Rigidbody:
   m_ObjectHideFlags: 0

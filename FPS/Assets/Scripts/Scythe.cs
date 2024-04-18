@@ -16,22 +16,22 @@ public class Scythe : MonoBehaviour
         {
             if (npc.hP <= 100)
             {
-                npc.TakeDamage(npc.hP + 1);
+                npc.TakeDamage(npc.hP + 1, gameObject);
             }
             else
             {
-                npc.TakeDamage(10);
+                npc.TakeDamage(10, gameObject);
             }
         }
         else if (player != null)
         {
             if (player.hP <= 100)
             {
-                player.TakeDamage(player.hP + 1);
+                player.TakeDamage(player.hP + 1, gameObject);
             }
             else
             {
-                player.TakeDamage(10);
+                player.TakeDamage(10, gameObject);
             }
         }
     }

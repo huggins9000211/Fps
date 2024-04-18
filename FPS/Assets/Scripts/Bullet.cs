@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] int speed;
     [SerializeField] int destroyTime;
+
+    bool hasDamaged;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +22,10 @@ public class Bullet : MonoBehaviour
     {
         IDamage dmg = other.GetComponent<IDamage>();
 
-        if (dmg != null)
+        if (dmg != null && !hasDamaged)
         {
-            dmg.TakeDamage(damage);
+            hasDamaged = true;
+            dmg.TakeDamage(damage, gameObject);
             Destroy(gameObject);
         }
 

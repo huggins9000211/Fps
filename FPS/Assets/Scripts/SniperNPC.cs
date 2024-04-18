@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AssultNPC : BaseNPC
+public class SniperNPC : BaseNPC
 {
+
     // Start is called before the first frame update
     [SerializeField] Transform shootPos;
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
-    [SerializeField] GameObject grenade;
-    [SerializeField] float grenadeVelocity;
-    [SerializeField] float grenadeCD;
-    [SerializeField] Vector3 granadeDirection;
+    [SerializeField] GameObject mine;
+    [SerializeField] float mineVelocity;
+    [SerializeField] float mineCD;
+    [SerializeField] Vector3 mineDirection;
     bool isShooting;
-    bool granadeOnCD;
+    bool mineOnCD;
 
     [SerializeField]
     NavMeshAgent agent;
@@ -22,6 +23,7 @@ public class AssultNPC : BaseNPC
     int faceTargetSpeed;
     bool targetInRange;
     Vector3 targetDir;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -35,15 +37,13 @@ public class AssultNPC : BaseNPC
         targetDir = base.target.transform.position - transform.position;
         agent.SetDestination(GameManager.instance.player.transform.position);
 
-
-
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
 
             FaceTarget();
         }
 
-        if (agent.remainingDistance <= agent.stoppingDistance + 30)
+        if (agent.remainingDistance <= agent.stoppingDistance + 50)
         {
 
             if (isShooting == false)
@@ -53,9 +53,6 @@ public class AssultNPC : BaseNPC
             //    StartCoroutine(Shoot2());
             //}
         }
-
-
-        //}
     }
     void FaceTarget()
     {
@@ -74,13 +71,13 @@ public class AssultNPC : BaseNPC
     IEnumerator Shoot2()
     {
 
-        granadeOnCD = true;
+        mineOnCD = true;
         Vector3 spawnPosition = shootPos.position + gameObject.transform.forward;
-        GameObject spawnedGrenade = Instantiate(grenade, spawnPosition, gameObject.transform.rotation);
-        Rigidbody rb = spawnedGrenade.GetComponent<Rigidbody>();
-        Vector3 finalThrowDirection = (gameObject.transform.forward + granadeDirection).normalized;
-        rb.AddForce(finalThrowDirection * grenadeVelocity, ForceMode.VelocityChange);
-        yield return new WaitForSeconds(grenadeCD);
-        granadeOnCD = false;
+        GameObject spawnedMine = Instantiate(mine, spawnPosition, gameObject.transform.rotation);
+        Rigidbody rb = spawnedMine.GetComponent<Rigidbody>();
+        Vector3 finalThrowDirection = (gameObject.transform.forward + mineDirection).normalized;
+        rb.AddForce(finalThrowDirection * mineVelocity, ForceMode.VelocityChange);
+        yield return new WaitForSeconds(mineCD);
+        mineOnCD = false;
     }
 }

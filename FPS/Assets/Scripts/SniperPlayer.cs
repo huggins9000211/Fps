@@ -18,8 +18,9 @@ public class SniperPlayer : BasePlayer
     Camera mainCamera;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Start()
     {
+        base.Start();
         base.jumpsAllowed = 1;
         mainCamera = Camera.main;
     }

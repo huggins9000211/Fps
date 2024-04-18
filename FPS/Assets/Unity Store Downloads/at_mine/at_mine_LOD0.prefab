@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -2176549414141557958}
   m_Layer: 0
   m_Name: at_mine_LOD0
-  m_TagString: Player
+  m_TagString: Sniper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

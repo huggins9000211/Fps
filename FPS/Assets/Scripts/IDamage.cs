@@ -1,5 +1,7 @@
+using UnityEngine;
+
 public interface IDamage
 {
 
-    void TakeDamage(int amount);
+    void TakeDamage(int amount, GameObject source);
 }

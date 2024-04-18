@@ -74,6 +74,7 @@ public class CharacterSelection : MonoBehaviour
 
     public void ApplyButton()
     {
+        Debug.Log(PlayerPrefs.GetInt("selectedCharacterInt"));
         SceneManager.LoadScene(1);
     }
         
