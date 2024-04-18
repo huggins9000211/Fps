@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
-    [SerializeField] GameObject menuLose;
 
     [SerializeField] AssaultSpawner assaultSpawner;
     [SerializeField] NinjaSpawner ninjaSpawner;
@@ -23,7 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text ReaperScoreHUD;
     [SerializeField] TMP_Text NinjaScoreHUD;
     [SerializeField] TMP_Text SniperScoreHUD;
-
+    [SerializeField] TMP_Text whoWon;
 
     public static GameManager instance;
 
@@ -175,18 +174,46 @@ public class GameManager : MonoBehaviour
             case 0:
                 assaultScore += points;
                 AssultScoreHUD.text = assaultScore.ToString("F0");
+                if (assaultScore >= 20)
+                {
+                    whoWon.text = "Assult Won!";
+                    StatePaused();
+                    menuActive = menuWin;
+                    menuActive.SetActive(isPaused);
+                }
                 break;
             case 1:
                 ninjaScore += points;
                 NinjaScoreHUD.text = ninjaScore.ToString("F0");
+                if (ninjaScore >= 20)
+                {
+                    whoWon.text = "Ninja Won!";
+                    StatePaused();
+                    menuActive = menuWin;
+                    menuActive.SetActive(isPaused);
+                }
                 break;
             case 2:
                 sniperScore += points;
                 SniperScoreHUD.text = sniperScore.ToString("F0");
+                if (sniperScore >= 20)
+                {
+                    whoWon.text = "Sniper Won!";
+                    StatePaused();
+                    menuActive = menuWin;
+                    menuActive.SetActive(isPaused);
+                }
                 break;
             case 3:
                 reaperScore += points;
                 ReaperScoreHUD.text = reaperScore.ToString("F0");
+                if (sniperScore >= 20)
+                {
+                    whoWon.text = "Reaper Won!";
+                    StatePaused();
+                    menuActive = menuWin;
+                    menuActive.SetActive(isPaused);
+                }
                 break;
         }
     }

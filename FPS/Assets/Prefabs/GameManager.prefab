@@ -48,12 +48,21 @@ MonoBehaviour:
   menuActive: {fileID: 0}
   menuPause: {fileID: 0}
   menuWin: {fileID: 0}
-  menuLose: {fileID: 0}
-  assaultSpawner: {fileID: 0}
-  ninjaSpawner: {fileID: 0}
-  sniperSpawner: {fileID: 0}
-  reaperSpawner: {fileID: 0}
-  Player: {fileID: 0}
+  assaultSpawner: {fileID: -555587405815933045, guid: 231d1973f4d9b6545b24d3f96d966866, type: 3}
+  ninjaSpawner: {fileID: 4272870161859226399, guid: af84c9f1b89ddc14a83606b947a3d116, type: 3}
+  sniperSpawner: {fileID: 2813558108194594715, guid: 8aee868c741c47e45a340933a2d69f42, type: 3}
+  reaperSpawner: {fileID: -2439621137001006798, guid: 8f0c8ef1c3a86364cb8c00dac4a172d5, type: 3}
+  playerDamageScreen: {fileID: 0}
+  hpBar: {fileID: 0}
+  AssultScoreHUD: {fileID: 0}
+  ReaperScoreHUD: {fileID: 0}
+  NinjaScoreHUD: {fileID: 0}
+  SniperScoreHUD: {fileID: 0}
+  whoWon: {fileID: 0}
+  player: {fileID: 0}
+  npc1: {fileID: 0}
+  npc2: {fileID: 0}
+  npc3: {fileID: 0}
   isPaused: 0
   playerType: 0
 --- !u!114 &1833199004776243045

@@ -31,7 +31,7 @@ public class NinjaNPC : BaseNPC
         
 
         targetDir = base.target.transform.position - transform.position;
-        agent.SetDestination(GameManager.instance.player.transform.position);
+        agent.SetDestination(base.target.transform.position);
 
         if (agent.remainingDistance <= agent.stoppingDistance)
         {
