@@ -317,18 +317,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2171379279652243396, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908209764262477752, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -539.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2908209764262477752, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.24
+      objectReference: {fileID: 0}
     - target: {fileID: 3974763414950635370, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: _selectableCharacter.Array.data[0]
       value: 
-      objectReference: {fileID: 1047474178109115778, guid: bbd860a8160e55c4cb5da811d995966a, type: 3}
+      objectReference: {fileID: 39574192538064424, guid: f0b69f7e4568f53408f27a2520c604d2, type: 3}
     - target: {fileID: 3974763414950635370, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: _selectableCharacter.Array.data[1]
       value: 
-      objectReference: {fileID: 1047474178109115778, guid: 9a1b614929ddd334e8b557ac4aa77964, type: 3}
+      objectReference: {fileID: 7003188508672379535, guid: 554136b9a9927e94fb45209b621ad2c1, type: 3}
     - target: {fileID: 3974763414950635370, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: _selectableCharacter.Array.data[2]
       value: 
-      objectReference: {fileID: 1047474178109115778, guid: 18a7a78a65b213b418695e6c96668ba8, type: 3}
+      objectReference: {fileID: 1047474178109115778, guid: 9a1b614929ddd334e8b557ac4aa77964, type: 3}
+    - target: {fileID: 4175237407142809337, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4490249292394514696, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -336,6 +352,10 @@ PrefabInstance:
     - target: {fileID: 6431507389731337462, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378264314683589169, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7636031048264828869, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: m_Pivot.x
@@ -420,15 +440,15 @@ PrefabInstance:
     - target: {fileID: 8880739875381891414, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: _selectableCharacter.Array.data[0]
       value: 
-      objectReference: {fileID: 1047474178109115778, guid: bbd860a8160e55c4cb5da811d995966a, type: 3}
+      objectReference: {fileID: 39574192538064424, guid: f0b69f7e4568f53408f27a2520c604d2, type: 3}
     - target: {fileID: 8880739875381891414, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: _selectableCharacter.Array.data[1]
       value: 
-      objectReference: {fileID: 1047474178109115778, guid: 9a1b614929ddd334e8b557ac4aa77964, type: 3}
+      objectReference: {fileID: 7003188508672379535, guid: 554136b9a9927e94fb45209b621ad2c1, type: 3}
     - target: {fileID: 8880739875381891414, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: _selectableCharacter.Array.data[2]
       value: 
-      objectReference: {fileID: 1047474178109115778, guid: 18a7a78a65b213b418695e6c96668ba8, type: 3}
+      objectReference: {fileID: 1047474178109115778, guid: 9a1b614929ddd334e8b557ac4aa77964, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

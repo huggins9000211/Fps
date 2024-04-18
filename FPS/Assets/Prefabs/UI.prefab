@@ -542,7 +542,7 @@ Transform:
   m_GameObject: {fileID: 346503012167256713}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -959.54, y: -538.162, z: 3.54}
+  m_LocalPosition: {x: -959.54, y: -539.48, z: 3.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -561,9 +561,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectableCharacter:
-  - {fileID: 1047474178109115778, guid: bbd860a8160e55c4cb5da811d995966a, type: 3}
+  - {fileID: 39574192538064424, guid: f0b69f7e4568f53408f27a2520c604d2, type: 3}
+  - {fileID: 7003188508672379535, guid: 554136b9a9927e94fb45209b621ad2c1, type: 3}
   - {fileID: 1047474178109115778, guid: 9a1b614929ddd334e8b557ac4aa77964, type: 3}
-  - {fileID: 1047474178109115778, guid: 18a7a78a65b213b418695e6c96668ba8, type: 3}
   _selectionDisplayObj: {fileID: 346503012167256713}
 --- !u!1 &410057807068023162
 GameObject:
@@ -1611,9 +1611,9 @@ MonoBehaviour:
   controllerSenSlider: {fileID: 2708078137351341595}
   invertYToggle: {fileID: 8836480158518003889}
   _selectableCharacter:
-  - {fileID: 1047474178109115778, guid: bbd860a8160e55c4cb5da811d995966a, type: 3}
+  - {fileID: 39574192538064424, guid: f0b69f7e4568f53408f27a2520c604d2, type: 3}
+  - {fileID: 7003188508672379535, guid: 554136b9a9927e94fb45209b621ad2c1, type: 3}
   - {fileID: 1047474178109115778, guid: 9a1b614929ddd334e8b557ac4aa77964, type: 3}
-  - {fileID: 1047474178109115778, guid: 18a7a78a65b213b418695e6c96668ba8, type: 3}
   _selectedCharacterInt: 0
 --- !u!1 &1074786517268129754
 GameObject:
@@ -3909,7 +3909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7801861577274063721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7361,7 +7361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4025566337527737523
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11393,7 +11393,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 1
-  m_AdditionalShaderChannelsFlag: 1
+  m_AdditionalShaderChannelsFlag: 5
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -12003,7 +12003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3819822569059792862
 RectTransform:
   m_ObjectHideFlags: 0
