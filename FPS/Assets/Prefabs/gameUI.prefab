@@ -4353,9 +4353,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4989778587907069597}
     - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
+      propertyPath: ninjaSpawner
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
       propertyPath: NinjaScoreHUD
       value: 
       objectReference: {fileID: 8463556196843238449}
+    - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
+      propertyPath: reaperSpawner
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
+      propertyPath: sniperSpawner
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
       propertyPath: AssultScoreHUD
       value: 
@@ -4368,6 +4380,10 @@ PrefabInstance:
       propertyPath: SniperScoreHUD
       value: 
       objectReference: {fileID: 6992796889555805702}
+    - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
+      propertyPath: assaultSpawner
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
       propertyPath: playerDamageScreen
       value: 
