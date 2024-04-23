@@ -32,7 +32,7 @@ public class CharacterSelection : MonoBehaviour
         //only destroys if child is present
        if(_selectionDisplayObj.transform.childCount > 0)
        {
-            //destroy the child at pos 0
+           
             Destroy(_selectionDisplayObj.transform.GetChild(0).transform.gameObject);
        }
        
