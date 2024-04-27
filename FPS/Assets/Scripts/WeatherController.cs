@@ -5,14 +5,14 @@ using UnityEngine;
 public class WeatherController : MonoBehaviour
 {
 
-    [SerializeField] private ParticleSystem snowParticleSystem;
-    [SerializeField] private float snowIntensity = 1.0f;
-    [SerializeField] private float emissionRate = 100.0f;
-    [SerializeField] private float visibilityRange = 50.0f;
-    [SerializeField] private float fogDensity = 0.05f;
-    [SerializeField] private Color fogColor = Color.gray;
-    [SerializeField] private float fogStartDistance = 20.0f;
-    [SerializeField] private float fogEndDistance = 100.0f;
+    [SerializeField] ParticleSystem snowParticleSystem;
+    [SerializeField] float snowIntensity = 1.0f;
+    [SerializeField] float emissionRate = 100.0f;
+    [SerializeField] float visibilityRange = 50.0f;
+    [SerializeField] float fogDensity = 0.05f;
+    [SerializeField] Color fogColor = Color.gray;
+    [SerializeField] float fogStartDistance = 20.0f;
+    [SerializeField] float fogEndDistance = 100.0f;
 
     // Start is called before the first frame update
     void Start()
