@@ -70,7 +70,7 @@ public class SniperNPC : BaseNPC
         isShooting = true;
      
 
-       // Instantiate(bullet, shootPos.position, shootPos.rotation);(djcomentout)
+        Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
