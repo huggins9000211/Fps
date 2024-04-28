@@ -24,7 +24,7 @@ public class CharacterSelection : MonoBehaviour
     void Update()
     {
         
-        Debug.Log("Character Selected =" + _selectedCharacterInt);
+        //Debug.Log("Character Selected =" + _selectedCharacterInt);
     }
 
     void InstantiateChacacter()

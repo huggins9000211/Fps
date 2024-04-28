@@ -82,7 +82,7 @@ public class MainMenuController : MonoBehaviour
     }
 
 
-    public void LoadGameDaillogYes()
+    public void LoadGameDialogYes()
     {
         if (PlayerPrefs.HasKey("SavedLevel"))
         {
