@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class AssultNPC : BaseNPC
 {
+
+  
     // Start is called before the first frame update
     [SerializeField] Transform shootPos;
     [SerializeField] float shootRate;
@@ -31,6 +33,8 @@ public class AssultNPC : BaseNPC
     // Update is called once per frame
     public override void Update()
     {
+       
+
         base.Update();
         targetDir = base.target.transform.position - transform.position;
         agent.SetDestination(base.target.transform.position);
@@ -66,6 +70,7 @@ public class AssultNPC : BaseNPC
     IEnumerator Shoot1()
     {
         isShooting = true;
+      
 
         Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(shootRate);
@@ -83,4 +88,8 @@ public class AssultNPC : BaseNPC
         yield return new WaitForSeconds(grenadeCD);
         granadeOnCD = false;
     }
+
+   
+
+
 }
