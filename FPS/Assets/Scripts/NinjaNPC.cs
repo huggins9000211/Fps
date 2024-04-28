@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class NinjaNPC : BaseNPC
 {
+    [SerializeField] Animator anim;//djadd
+    [SerializeField] int animSpeedTrans;//djadd
 
     [SerializeField] Transform shootPos;
     [SerializeField] float shootRate;
@@ -28,7 +30,10 @@ public class NinjaNPC : BaseNPC
     // Update is called once per frame
     public override void Update()
     {
-       
+        float animSpeed = agent.velocity.normalized.magnitude;//djadd
+        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), animSpeed, Time.deltaTime * animSpeedTrans));//djadd
+
+
         base.Update();
         targetDir = base.target.transform.position - transform.position;
         agent.SetDestination(base.target.transform.position);
@@ -62,7 +67,10 @@ public class NinjaNPC : BaseNPC
     IEnumerator Shoot1()
     {
         isShooting = true;
-        
+        agent.isStopped = true; // Stop agent movement
+        anim.SetTrigger("Shoot");//djadd
+
+        yield return new WaitForSeconds(0.1f);//djadd
 
         Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(.15f);
@@ -70,6 +78,9 @@ public class NinjaNPC : BaseNPC
         yield return new WaitForSeconds(.15f);
         Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(shootRate);
+
+        anim.ResetTrigger("Shoot");
+        agent.isStopped = false;
         isShooting = false;
     }
     IEnumerator Shoot2()

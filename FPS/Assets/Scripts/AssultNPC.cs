@@ -5,8 +5,9 @@ using UnityEngine.AI;
 
 public class AssultNPC : BaseNPC
 {
+    [SerializeField] Animator anim;//djadd
+    [SerializeField] int animSpeedTrans;//djadd
 
-  
     // Start is called before the first frame update
     [SerializeField] Transform shootPos;
     [SerializeField] float shootRate;
@@ -33,7 +34,8 @@ public class AssultNPC : BaseNPC
     // Update is called once per frame
     public override void Update()
     {
-       
+        float animSpeed = agent.velocity.normalized.magnitude;//djadd
+        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), animSpeed, Time.deltaTime * animSpeedTrans));//djadd
 
         base.Update();
         targetDir = base.target.transform.position - transform.position;
@@ -70,7 +72,7 @@ public class AssultNPC : BaseNPC
     IEnumerator Shoot1()
     {
         isShooting = true;
-      
+        anim.SetTrigger("Shoot");//djadd
 
         Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(shootRate);
@@ -89,7 +91,10 @@ public class AssultNPC : BaseNPC
         granadeOnCD = false;
     }
 
-   
+    public void CreateBullet()//djadd
+    {
+        Instantiate(bullet, shootPos.position, transform.rotation);//djadd
+    }
 
 
 }

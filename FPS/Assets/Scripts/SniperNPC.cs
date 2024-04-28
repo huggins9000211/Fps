@@ -6,7 +6,10 @@ using UnityEngine.AI;
 public class SniperNPC : BaseNPC
 {
 
- 
+    [SerializeField] Animator anim;//djadd
+    [SerializeField] int animSpeedTrans;//djadd
+   
+
 
     // Start is called before the first frame update
     [SerializeField] Transform shootPos;
@@ -18,6 +21,7 @@ public class SniperNPC : BaseNPC
     [SerializeField] Vector3 mineDirection;
     bool isShooting;
     bool mineOnCD;
+
 
     [SerializeField]
     NavMeshAgent agent;
@@ -35,7 +39,8 @@ public class SniperNPC : BaseNPC
     // Update is called once per frame
     public override void Update()
     {
-       
+        float animSpeed = agent.velocity.normalized.magnitude;//djadd
+        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), animSpeed, Time.deltaTime * animSpeedTrans));//djadd
 
 
         base.Update();
@@ -68,9 +73,9 @@ public class SniperNPC : BaseNPC
     IEnumerator Shoot1()
     {
         isShooting = true;
-     
+        anim.SetTrigger("Shoot");//djadd
 
-        Instantiate(bullet, shootPos.position, shootPos.rotation);
+       // Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
@@ -86,6 +91,9 @@ public class SniperNPC : BaseNPC
         yield return new WaitForSeconds(mineCD);
         mineOnCD = false;
     }
+    public void CreateBullet()//djadd
+    {
+        Instantiate(bullet, shootPos.position, transform.rotation);//djadd
+    }
 
-  
 }

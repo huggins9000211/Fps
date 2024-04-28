@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using static Unity.VisualScripting.Member;
 
 public class BaseNPC : MonoBehaviour, IDamage
@@ -33,6 +34,8 @@ public class BaseNPC : MonoBehaviour, IDamage
 
     public virtual void Update()
     {
+       
+
         if (target == null)
         {
             GetRandomTarget();
