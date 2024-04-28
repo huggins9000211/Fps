@@ -9,17 +9,13 @@ using UnityEngine.SceneManagement;
 public class CharacterSelection : MonoBehaviour
 {
     public GameObject[] _selectableCharacter;
-    static int _selectedCharacterInt = 0;
+    static int _selectedCharacterInt;
     public GameObject _selectionDisplayObj = null;
 
     private void Start()
     {
-        foreach(GameObject i in _selectableCharacter)
-        {
-            i.GetComponent<Rigidbody>().useGravity = false;
-        }
-        InstantiateChacacter();
-        PlayerPrefs.SetInt("selectedCharacterInt", 0);
+        PlayerPrefs.SetInt("selectedCharacterInt", _selectedCharacterInt);
+        InstantiateCharacter();
     }
     void Update()
     {
@@ -27,12 +23,11 @@ public class CharacterSelection : MonoBehaviour
         //Debug.Log("Character Selected =" + _selectedCharacterInt);
     }
 
-    void InstantiateChacacter()
+    void InstantiateCharacter()
     {
         //only destroys if child is present
        if(_selectionDisplayObj.transform.childCount > 0)
        {
-           
             Destroy(_selectionDisplayObj.transform.GetChild(0).transform.gameObject);
        }
        
@@ -56,7 +51,7 @@ public class CharacterSelection : MonoBehaviour
             _selectedCharacterInt = _selectableCharacter.Length - 1;
 
         PlayerPrefs.SetInt("selectedCharacterInt",_selectedCharacterInt);
-        InstantiateChacacter();
+        InstantiateCharacter();
     }
 
 
@@ -69,14 +64,9 @@ public class CharacterSelection : MonoBehaviour
             _selectedCharacterInt = 0;
 
         PlayerPrefs.SetInt("selectedCharacterInt", _selectedCharacterInt);
-        InstantiateChacacter();
+        InstantiateCharacter();
 
     }
 
-    public void ApplyButton()
-    {
-        Debug.Log(PlayerPrefs.GetInt("selectedCharacterInt"));
-        SceneManager.LoadScene(1);
-    }
         
 }
