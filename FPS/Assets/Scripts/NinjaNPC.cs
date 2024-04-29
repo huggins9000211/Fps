@@ -67,6 +67,7 @@ public class NinjaNPC : BaseNPC
     IEnumerator Shoot1()
     {
         isShooting = true;
+        agent.isStopped = true; // Stop agent movement
         anim.SetTrigger("Shoot");//djadd
 
         yield return new WaitForSeconds(0.1f);//djadd
@@ -78,7 +79,8 @@ public class NinjaNPC : BaseNPC
         Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(shootRate);
 
-       
+        anim.ResetTrigger("Shoot");
+        agent.isStopped = false;
         isShooting = false;
     }
     IEnumerator Shoot2()
