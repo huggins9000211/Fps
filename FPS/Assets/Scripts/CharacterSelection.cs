@@ -5,66 +5,64 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class CharacterSelection : MonoBehaviour
 {
-    public GameObject[] _selectableCharacter;
+    [SerializeField] TMP_Text typeText;
+    public SelectableCharacter[] characterType;
     static int _selectedCharacterInt;
-    public GameObject _selectionDisplayObj = null;
+    SelectableCharacter typeDisplay = null;
+
+    GameObject[] toDelete;
+
 
     private void Start()
     {
         PlayerPrefs.SetInt("selectedCharacterInt", _selectedCharacterInt);
-        InstantiateCharacter();
-    }
-    void Update()
-    {
-        
-        //Debug.Log("Character Selected =" + _selectedCharacterInt);
-    }
+        typeDisplay = characterType[_selectedCharacterInt];
+        typeText.text = typeDisplay.characterType;
 
-    void InstantiateCharacter()
-    {
-        //only destroys if child is present
-       if(_selectionDisplayObj.transform.childCount > 0)
-       {
-            Destroy(_selectionDisplayObj.transform.GetChild(0).transform.gameObject);
-       }
-       
-       //create game object before instantiate
-        
-        GameObject playerSelection = Instantiate(_selectableCharacter[_selectedCharacterInt]);
-        playerSelection.name = "Player Character selection";
-        playerSelection.transform.SetParent(_selectionDisplayObj.transform);
-        playerSelection.transform.localPosition = Vector3.zero;
-
-
-        return;
-        
+        toDelete = GameObject.FindGameObjectsWithTag("CharacterType");
+        foreach (GameObject go in toDelete) { Destroy(go); }
+        Instantiate(typeDisplay.characterModel, new Vector3(0, 0, 0), new Quaternion(0, 180, 0, 0));
     }
 
     public void PrevousButton()
     {
-        if(_selectedCharacterInt > 0)
-        _selectedCharacterInt--;
+        toDelete = GameObject.FindGameObjectsWithTag("CharacterType");
+        foreach (GameObject go in toDelete) { Destroy(go); }
+
+        if (_selectedCharacterInt > 0)
+            _selectedCharacterInt--;
         else if (_selectedCharacterInt <= 0)
-            _selectedCharacterInt = _selectableCharacter.Length - 1;
+            _selectedCharacterInt = characterType.Length - 1;
+
+
+        typeDisplay = characterType[_selectedCharacterInt];
+        typeText.text = typeDisplay.characterType;
+        Instantiate(typeDisplay.characterModel, new Vector3(0,0,0), new Quaternion(0,180,0,0));
 
         PlayerPrefs.SetInt("selectedCharacterInt",_selectedCharacterInt);
-        InstantiateCharacter();
     }
 
 
     public void NextButton()
     {
-        if(_selectedCharacterInt < _selectableCharacter.Length) 
+        toDelete = GameObject.FindGameObjectsWithTag("CharacterType");
+        foreach (GameObject go in toDelete) { Destroy(go); }
+
+        if (_selectedCharacterInt < characterType.Length) 
             _selectedCharacterInt++;
 
-        if (_selectedCharacterInt >= _selectableCharacter.Length)
+        if (_selectedCharacterInt >= characterType.Length)
             _selectedCharacterInt = 0;
 
+        typeDisplay = characterType[_selectedCharacterInt];
+        typeText.text = typeDisplay.characterType;
+        Instantiate(typeDisplay.characterModel, new Vector3(0, 0, 0), new Quaternion(0, 180, 0, 0));
+
         PlayerPrefs.SetInt("selectedCharacterInt", _selectedCharacterInt);
-        InstantiateCharacter();
 
     }
 

@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Sniper
+  - Spawner
+  - Ninja
+  - Assult
+  - Reaper
+  - CharacterType
   layers:
   - Default
   - TransparentFX
