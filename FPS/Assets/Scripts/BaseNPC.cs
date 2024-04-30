@@ -13,6 +13,7 @@ public class BaseNPC : MonoBehaviour, IDamage
 
     public Animator anim1;
     public GameObject target;
+    bool canTakeDmg = true;
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -76,6 +77,7 @@ public class BaseNPC : MonoBehaviour, IDamage
         StartCoroutine(FlashRed());
         if (hP <= 0)
         {
+            canTakeDmg = false;
             string sourceTag = sourse.tag;
             if (sourceTag == "Assult")
             {
@@ -103,7 +105,7 @@ public class BaseNPC : MonoBehaviour, IDamage
 
             if (thisTag == "Assult")
             {
-                //Destroy(gameObject);
+                Destroy(gameObject);
                 GameManager.instance.SpawnAssault(false);
             }
             else if (thisTag == "Ninja")

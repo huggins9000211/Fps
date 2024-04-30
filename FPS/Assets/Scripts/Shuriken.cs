@@ -24,6 +24,7 @@ public class Shuriken : MonoBehaviour
 
         if (dmg != null && !hasDamaged && other.gameObject.tag != "Ninja")
         {
+            
             hasDamaged = true;
             dmg.TakeDamage(damage, gameObject);
             Destroy(gameObject);
