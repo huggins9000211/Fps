@@ -131,14 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2036830559001456367, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175237407142809337, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6431507389731337462, guid: ff8740410fb6a074581e3be80daeb541, type: 3}
       propertyPath: m_Name
       value: MainMenu

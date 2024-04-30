@@ -66,5 +66,11 @@ public class CharacterSelection : MonoBehaviour
 
     }
 
+    public void SelectButton()
+    {
+        toDelete = GameObject.FindGameObjectsWithTag("CharacterType");
+        foreach (GameObject go in toDelete) { Destroy(go); }
+    }
+
         
 }
