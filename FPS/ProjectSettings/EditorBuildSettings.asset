@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Arena.unity
     guid: 78c9b34a2c975ab42be36fafb544f1d5
   - enabled: 1
-    path: Assets/Scenes/Dj level.unity
+    path: Assets/Scenes/Containers.unity
     guid: 4207db0622808d845bb494a93dec245e
   m_configObjects: {}
