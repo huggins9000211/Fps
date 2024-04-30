@@ -8,21 +8,24 @@ public class LevelSelect : MonoBehaviour
 {
     [SerializeField] TMP_Text levelName;
 
-    public List<string> Levels;
+    //public List<string> Levels;
+    public List<SelectableLevel> Levels;
 
+    SelectableLevel levelDisplay = null;
+    GameObject[] toDelete;
     int selectedLevel;
 
     // Start is called before the first frame update
     void Start()
     {
-        levelName.text = Levels[selectedLevel];
+        levelName.text = Levels[selectedLevel].levelName;
+        toDelete = GameObject.FindGameObjectsWithTag("LevelDisplay");
+
+        levelDisplay = Levels[selectedLevel];
+        foreach (GameObject go in toDelete) { Destroy(go); }
+        Instantiate(levelDisplay.levelModel, new Vector3(0, 0, 0), new Quaternion(-15, 180, -15, 15));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void PreviousLevel()
     {
         if (selectedLevel > 0)
@@ -30,7 +33,12 @@ public class LevelSelect : MonoBehaviour
         else if (selectedLevel <= 0)
             selectedLevel = Levels.Count - 1;
 
-        levelName.text = Levels[selectedLevel];
+        levelName.text = Levels[selectedLevel].levelName;
+        toDelete = GameObject.FindGameObjectsWithTag("LevelDisplay");
+
+        levelDisplay = Levels[selectedLevel];
+        foreach (GameObject go in toDelete) { Destroy(go); }
+        Instantiate(levelDisplay.levelModel, new Vector3(0, 0, 0), new Quaternion(-15, 180, -15, 15));
         //PlayerPrefs.SetInt("selectedLevel", selectedLevel);
     }
     public void NextLevel()
@@ -40,13 +48,20 @@ public class LevelSelect : MonoBehaviour
         else if (selectedLevel >= Levels.Count - 1)
             selectedLevel = 0;
 
-        levelName.text = Levels[selectedLevel];
+        levelName.text = Levels[selectedLevel].levelName;
+        toDelete = GameObject.FindGameObjectsWithTag("LevelDisplay");
+
+        levelDisplay = Levels[selectedLevel];
+        foreach (GameObject go in toDelete) { Destroy(go); }
+        Instantiate(levelDisplay.levelModel, new Vector3(0, 0, 0), new Quaternion(-15, 180, -15, 15));
         //PlayerPrefs.SetInt("selectedLevel", selectedLevel);
 
     }
 
     public void SelectLevel()
     {
-        SceneManager.LoadScene(Levels[selectedLevel]);
+        levelDisplay = Levels[selectedLevel];
+        foreach (GameObject go in toDelete) { Destroy(go); }
+        SceneManager.LoadScene(Levels[selectedLevel].levelName);
     }
 }

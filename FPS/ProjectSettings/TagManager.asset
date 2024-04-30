@@ -10,6 +10,7 @@ TagManager:
   - Assult
   - Reaper
   - CharacterType
+  - LevelDisplay
   layers:
   - Default
   - TransparentFX
