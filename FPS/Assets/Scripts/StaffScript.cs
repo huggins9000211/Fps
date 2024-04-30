@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class StaffScript : MonoBehaviour
+{
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other == transform.parent.parent)
+        {
+            return;
+        }
+        BaseNPC npc = other.GetComponent<BaseNPC>();
+        BasePlayer player = other.GetComponent<BasePlayer>();
+        if (npc != null)
+        {
+            if (npc.hP <= 100)
+            {
+                npc.TakeDamage(npc.hP + 1, gameObject);
+            }
+            else
+            {
+                npc.TakeDamage(10, gameObject);
+            }
+        }
+        else if (player != null)
+        {
+            if (player.hP <= 100)
+            {
+                player.TakeDamage(player.hP + 1, gameObject);
+            }
+            else
+            {
+                player.TakeDamage(10, gameObject);
+            }
+        }
+    }
+
+
+}
