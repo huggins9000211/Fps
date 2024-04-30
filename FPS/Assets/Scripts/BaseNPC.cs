@@ -11,6 +11,7 @@ public class BaseNPC : MonoBehaviour, IDamage
 
     [SerializeField] public int hP;
 
+    public Animator anim1;
     public GameObject target;
     // Start is called before the first frame update
     public virtual void Start()
@@ -71,6 +72,7 @@ public class BaseNPC : MonoBehaviour, IDamage
     public void TakeDamage(int amount, GameObject sourse)
     {
         hP -= amount;
+        anim1.SetTrigger("Damage");
         StartCoroutine(FlashRed());
         if (hP <= 0)
         {

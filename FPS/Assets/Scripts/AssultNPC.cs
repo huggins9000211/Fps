@@ -74,7 +74,7 @@ public class AssultNPC : BaseNPC
         isShooting = true;
         anim.SetTrigger("Shoot");//djadd
 
-        Instantiate(bullet, shootPos.position, shootPos.rotation);
+       // Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(shootRate);
         isShooting = false;
     }
