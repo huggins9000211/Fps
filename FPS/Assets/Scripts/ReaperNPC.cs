@@ -12,6 +12,7 @@ public class ReaperNPC : BaseNPC
 
     [SerializeField] Animator anim;//djadd
     [SerializeField] int animSpeedTrans;//djadd
+    [SerializeField] Collider weaponCol;//djadd
 
     bool isStealthed;
     bool isSwinging;
@@ -113,5 +114,15 @@ public class ReaperNPC : BaseNPC
     {
         isStealthed = false;
         mr.enabled = true;
+    }
+
+    public void WeaponColOn()
+    {
+        weaponCol.enabled = true;
+    }
+
+    public void WeaponColOff()
+    {
+        weaponCol.enabled = false;
     }
 }
