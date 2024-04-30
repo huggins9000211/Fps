@@ -24,8 +24,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text SniperScoreHUD;
     [SerializeField] TMP_Text whoWon;
     [SerializeField] int winNumber;
-    public static GameManager instance;
 
+    [SerializeField] TMP_Text ammoCurText;
+    [SerializeField] TMP_Text ammoMaxText;
+
+    public static GameManager instance;
     public GameObject player;
     public GameObject npc1;
     public GameObject npc2;

@@ -2473,10 +2473,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1495742953565120561, guid: 786088ac8eea42d41ae1e58e06badc8e, type: 3}
-      propertyPath: winNumber
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1495742953565120561, guid: 786088ac8eea42d41ae1e58e06badc8e, type: 3}
       propertyPath: ninjaSpawner
       value: 
       objectReference: {fileID: 1637990217}
