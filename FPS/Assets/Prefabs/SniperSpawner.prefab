@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9403de2251f6da0409c8ef2f6a37367d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sniperEnemy: {fileID: 4948792846697568796, guid: 00bf7dfe3cca2e344a9aeb340356f524, type: 3}
+  sniperEnemy: {fileID: 1714734341181427339, guid: ada7b6d7d16b9bf45bec35c775a1e029, type: 3}
   sniperPlayer: {fileID: 6243081663306818582, guid: d7c67dd4bb053fc4fa9e762c2c0dcb17, type: 3}
