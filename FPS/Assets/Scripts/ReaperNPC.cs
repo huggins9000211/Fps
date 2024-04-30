@@ -10,6 +10,9 @@ public class ReaperNPC : BaseNPC
     [SerializeField] float swingTime;
     [SerializeField] MeshRenderer mr;
 
+    [SerializeField] Animator anim;//djadd
+    [SerializeField] int animSpeedTrans;//djadd
+
     bool isStealthed;
     bool isSwinging;
     // Start is called before the first frame update
@@ -29,6 +32,9 @@ public class ReaperNPC : BaseNPC
     // Update is called once per frame
     public override void Update()
     {
+        float animSpeed = agent.velocity.normalized.magnitude;//djadd
+        anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), animSpeed, Time.deltaTime * animSpeedTrans));//djadd
+
         base.Update();
 
 
@@ -63,6 +69,8 @@ public class ReaperNPC : BaseNPC
 
     IEnumerator Shoot1()
     {
+        
+       
         if (isSwinging)
         {
             yield break;
@@ -79,7 +87,8 @@ public class ReaperNPC : BaseNPC
         while (counter < swingTime)
         {
             counter += Time.deltaTime;
-            weponPos.transform.eulerAngles = Vector3.Lerp(currentRot, newRot, counter / swingTime);
+            anim.SetTrigger("Shoot");
+           // weponPos.transform.eulerAngles = Vector3.Lerp(currentRot, newRot, counter / swingTime);
             yield return null;
         }
         isSwinging = false;

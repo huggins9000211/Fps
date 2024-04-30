@@ -67,10 +67,7 @@ public class NinjaNPC : BaseNPC
     IEnumerator Shoot1()
     {
         isShooting = true;
-       
-
-        yield return new WaitForSeconds(0.1f);//djadd
-
+         
         Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(.15f);
         Instantiate(bullet, shootPos.position, shootPos.rotation);
