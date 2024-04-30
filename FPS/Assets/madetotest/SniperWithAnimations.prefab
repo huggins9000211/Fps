@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 295016340583985945}
   m_Layer: 0
   m_Name: SniperWithAnimations
-  m_TagString: Untagged
+  m_TagString: Sniper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

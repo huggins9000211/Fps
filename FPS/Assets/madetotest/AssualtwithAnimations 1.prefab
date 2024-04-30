@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 7480563692109518267}
   m_Layer: 0
   m_Name: AssualtwithAnimations 1
-  m_TagString: Untagged
+  m_TagString: Assult
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
