@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        
         instance = this;
         playerType = PlayerPrefs.GetInt("selectedCharacterInt", 0);
         SpawnPlayers();

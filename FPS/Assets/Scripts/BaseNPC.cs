@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using static Unity.VisualScripting.Member;
@@ -11,12 +12,16 @@ public class BaseNPC : MonoBehaviour, IDamage
 
     [SerializeField] public int hP;
 
+    int hpOrj;
     public Animator anim1;
     public GameObject target;
     bool canTakeDmg = true;
+    Vector3 spawnPos;
     // Start is called before the first frame update
     public virtual void Start()
     {
+        hpOrj = hP;
+        spawnPos = transform.position;
         if (GameManager.instance.npc1 == null)
         {
             GameManager.instance.npc1 = gameObject;
@@ -100,29 +105,8 @@ public class BaseNPC : MonoBehaviour, IDamage
             }
 
 
-            string thisTag = gameObject.tag;
-            Destroy(gameObject);
-
-            if (thisTag == "Assult")
-            {
-                Destroy(gameObject);
-                GameManager.instance.SpawnAssault(false);
-            }
-            else if (thisTag == "Ninja")
-            {
-                Destroy(gameObject);
-                GameManager.instance.SpawnNinja(false);
-            }
-            else if (thisTag == "Sniper")
-            {
-                Destroy(gameObject);
-                GameManager.instance.SpawnSniper(false);
-            }
-            else if (thisTag == "Reaper")
-            {
-                Destroy(gameObject);
-                GameManager.instance.SpawnReaper(false);
-            }
+            hP = hpOrj;
+            transform.position = spawnPos;
 
         }
     }

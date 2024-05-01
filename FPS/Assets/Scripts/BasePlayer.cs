@@ -37,11 +37,13 @@ public class BasePlayer : MonoBehaviour, IDamage
     protected int jumpsAllowed;
     int jumpedTimes;
     int hPOrg;
+    Vector3 spawnPos;
 
     // Start is called before the first frame update
      public virtual void Start()
     {
         hPOrg = hP;
+        spawnPos = transform.position;
         updatePlayerUI();
         GameManager.instance.playerDamageScreen.SetActive(false);
         //characterController = GetComponent<CharacterController>();
@@ -68,7 +70,7 @@ public class BasePlayer : MonoBehaviour, IDamage
         PlayJump(); ///// Mav
 
         StartCoroutine(FlashDamage());
-        updatePlayerUI();
+
         if (hP <= 0)
         {
             string sourceTag = source.tag;
@@ -92,29 +94,14 @@ public class BasePlayer : MonoBehaviour, IDamage
 
             }
 
-            string thisTag = gameObject.tag;
-            if (thisTag == "Assult")
-            {
-                Destroy(gameObject);
-                GameManager.instance.SpawnAssault(true);
-            }
-            else if (thisTag == "Ninja")
-            {
-                Destroy(gameObject);
-                GameManager.instance.SpawnNinja(true);
-            }
-            else if (thisTag == "Sniper")
-            {
-                Destroy(gameObject);
-                GameManager.instance.SpawnSniper(true);
-            }
-            else if (thisTag == "Reaper")
-            {
-                Destroy(gameObject);
-                GameManager.instance.SpawnReaper(true);
-            }
+
+            hP = hPOrg;
+            characterController.enabled = false;
+            transform.position = spawnPos;
+            characterController.enabled = true;
 
         }
+        updatePlayerUI();
 
     }
 
