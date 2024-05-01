@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] int damage;
     [SerializeField] int speed;
     [SerializeField] int destroyTime;
+    public ParticleSystem hitEffect;
 
     bool hasDamaged;
     // Start is called before the first frame update
@@ -26,8 +27,9 @@ public class Bullet : MonoBehaviour
         {
             hasDamaged = true;
             dmg.TakeDamage(damage, gameObject);
-            
+
         }
+        Instantiate(hitEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
 
 

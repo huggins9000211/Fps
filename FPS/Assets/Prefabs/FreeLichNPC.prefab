@@ -57,11 +57,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 0}
   hP: 0
+  anim1: {fileID: 3889524661055080617}
   target: {fileID: 0}
   weponPos: {fileID: 5475039067135203152}
   swingRate: 2
   swingTime: 1
   mr: {fileID: 8617735098811027161}
+  anim: {fileID: 3889524661055080617}
+  animSpeedTrans: 0
+  weaponCol: {fileID: 0}
   agent: {fileID: 171654263620422721}
   faceTargetSpeed: 0
 --- !u!95 &3889524661055080617

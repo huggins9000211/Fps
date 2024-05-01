@@ -6,16 +6,21 @@ using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
+    [Header("----- GM -----")]
+    public static GameManager instance;
 
+    [Header("----- Menus -----")]
     [SerializeField] GameObject menuActive;
     [SerializeField] GameObject menuPause;
     [SerializeField] GameObject menuWin;
 
+    [Header("----- Spawners -----")]
     [SerializeField] AssaultSpawner assaultSpawner;
     [SerializeField] NinjaSpawner ninjaSpawner;
     [SerializeField] SniperSpawner sniperSpawner;
     [SerializeField] ReaperSpawner reaperSpawner;
 
+    [Header("----- HUD -----")]
     public GameObject playerDamageScreen; 
     public Image hpBar;
     [SerializeField] TMP_Text AssultScoreHUD;
@@ -25,10 +30,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text whoWon;
     [SerializeField] int winNumber;
 
+    [Header("----- Ammo -----")]
     [SerializeField] TMP_Text ammoCurText;
     [SerializeField] TMP_Text ammoMaxText;
 
-    public static GameManager instance;
+    [Header("----- Player/NPCs -----")]
+    public BasePlayer basePlayer;
     public GameObject player;
     public GameObject npc1;
     public GameObject npc2;
@@ -51,6 +58,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         playerType = PlayerPrefs.GetInt("selectedCharacterInt", 0);
         SpawnPlayers();
+        basePlayer = player.GetComponent<BasePlayer>();
     }
 
     // Update is called once per frame

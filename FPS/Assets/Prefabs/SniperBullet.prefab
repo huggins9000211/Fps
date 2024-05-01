@@ -185,6 +185,7 @@ MonoBehaviour:
   damage: 200
   speed: 40
   destroyTime: 20
+  hitEffect: {fileID: 5512684576593806731, guid: 33adade2560d524429d96b20a80ce04d, type: 3}
 --- !u!54 &1031209737190419115
 Rigidbody:
   m_ObjectHideFlags: 0

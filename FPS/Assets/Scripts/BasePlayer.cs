@@ -13,6 +13,9 @@ public class BasePlayer : MonoBehaviour, IDamage
     [SerializeField] int jumpSpeed;
 
 
+    public bool playingSteps; ///// Mav
+    public bool isSprinting; ///// Mav
+
 
     Vector3 moveDir;
     Vector3 playerVel;
@@ -46,6 +49,9 @@ public class BasePlayer : MonoBehaviour, IDamage
     public void TakeDamage(int amount, GameObject source)
     {
         hP -= amount;
+
+        AudioManager.instance.PlayJump(); ///// Mav
+
         StartCoroutine(FlashDamage());
         updatePlayerUI();
         if (hP <= 0)
@@ -121,11 +127,17 @@ public class BasePlayer : MonoBehaviour, IDamage
         {
             jumpedTimes++;
             playerVel.y = jumpSpeed;
+            AudioManager.instance.PlayJump(); ///// Mav
         }
 
 
         playerVel.y -= gravity * Time.deltaTime;
         characterController.Move(playerVel * Time.deltaTime);
+
+        if (characterController.isGrounded && moveDir.normalized.magnitude > 0.3f && !playingSteps)
+        {
+            StartCoroutine(AudioManager.instance.PlaySteps());
+        }
     }
 
     public void Stun(float duration)
