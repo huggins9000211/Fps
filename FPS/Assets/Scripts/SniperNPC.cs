@@ -53,7 +53,7 @@ public class SniperNPC : BaseNPC
             FaceTarget();
         }
 
-        if (agent.remainingDistance <= agent.stoppingDistance + 50)
+        if (agent.remainingDistance <= agent.stoppingDistance)
         {
 
             if (isShooting == false)
@@ -73,7 +73,13 @@ public class SniperNPC : BaseNPC
     IEnumerator Shoot1()
     {
         isShooting = true;
+        Vector3 newGunRotation = target.transform.position - shootPos.position;
+        newGunRotation.y = 0;
+       // shootPos.rotation = Quaternion.LookRotation(newGunRotation);
+
+
         anim.SetTrigger("Shoot");//djadd
+
 
        // Instantiate(bullet, shootPos.position, shootPos.rotation);
         yield return new WaitForSeconds(shootRate);
@@ -93,7 +99,7 @@ public class SniperNPC : BaseNPC
     }
     public void CreateBullet()//djadd
     {
-        Instantiate(bullet, shootPos.position, transform.rotation);//djadd
+        Instantiate(bullet, shootPos.position, shootPos.rotation);//djadd
     }
 
 }
