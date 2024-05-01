@@ -27,9 +27,9 @@ public class Shuriken : MonoBehaviour
             
             hasDamaged = true;
             dmg.TakeDamage(damage, gameObject);
-            Destroy(gameObject);
+          
         }
+        Destroy(gameObject);
 
-        
     }
 }
