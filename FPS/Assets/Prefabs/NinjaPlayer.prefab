@@ -221,7 +221,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 03a4d389d78c98e41add3d414b182224, type: 3}
   - {fileID: 8300000, guid: db857a9b0adcbd3408d7bc48d559b218, type: 3}
   - {fileID: 8300000, guid: 8ad21e042958c674a9a31f7e512c6543, type: 3}
-  audStepsVol: 0.5
+  audStepsVol: 0.01
   playingSteps: 0
   isSprinting: 0
   shootPos: {fileID: 6510722709141348796}
