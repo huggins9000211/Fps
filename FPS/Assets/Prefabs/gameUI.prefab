@@ -348,7 +348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3557439248040480788
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4781,6 +4781,10 @@ PrefabInstance:
       propertyPath: hpBar
       value: 
       objectReference: {fileID: 1260430626412946737}
+    - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
+      propertyPath: AmmoUI
+      value: 
+      objectReference: {fileID: 1242137542155502667}
     - target: {fileID: 1726987517840205165, guid: 84baa0215467a8e48b39d3a9eacd65d9, type: 3}
       propertyPath: whoWon
       value: 

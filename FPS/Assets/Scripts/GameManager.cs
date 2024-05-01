@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int winNumber;
 
     [Header("----- Ammo -----")]
+    [SerializeField] GameObject AmmoUI;
     public TMP_Text ammoCurText;
     public TMP_Text ammoMaxText;
 
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour
             case 0:
                 player = SpawnAssault(true);
                 assaultPlayer = player.GetComponent<AssaultPlayer>();
+                AmmoUI.SetActive(true);
                 npc1 = SpawnNinja(false);
                 npc2 = SpawnSniper(false);
                 npc3 = SpawnReaper(false);
