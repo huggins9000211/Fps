@@ -4,13 +4,28 @@ using UnityEngine;
 
 public class BasePlayer : MonoBehaviour, IDamage
 {
+    [Header("----- Components -----")]
     [SerializeField] CharacterController characterController;
+    [SerializeField] AudioSource aud;
+    //[SerializeField] AudioManager audMan;
 
+    [Header("----- Stats -----")]
     [SerializeField] public int hP;
     [SerializeField] float speed;
     [SerializeField] int gravity;
 
     [SerializeField] int jumpSpeed;
+
+    [Header("----- Audio -----")]
+    [SerializeField] AudioClip[] audJump;
+    [Range(0, 1)][SerializeField] float audJumpVol;
+
+    [SerializeField] AudioClip[] audHurt;
+    [Range(0, 1)][SerializeField] float audHurtVol;
+
+    [SerializeField] AudioClip[] audSteps;
+    [Range(0, 1)][SerializeField] float audStepsVol;
+
 
 
     public bool playingSteps; ///// Mav
@@ -50,7 +65,7 @@ public class BasePlayer : MonoBehaviour, IDamage
     {
         hP -= amount;
 
-        AudioManager.instance.PlayJump(); ///// Mav
+        PlayJump(); ///// Mav
 
         StartCoroutine(FlashDamage());
         updatePlayerUI();
@@ -127,7 +142,7 @@ public class BasePlayer : MonoBehaviour, IDamage
         {
             jumpedTimes++;
             playerVel.y = jumpSpeed;
-            AudioManager.instance.PlayJump(); ///// Mav
+            PlayJump(); ///// Mav
         }
 
 
@@ -136,7 +151,7 @@ public class BasePlayer : MonoBehaviour, IDamage
 
         if (characterController.isGrounded && moveDir.normalized.magnitude > 0.3f && !playingSteps)
         {
-            StartCoroutine(AudioManager.instance.PlaySteps());
+            StartCoroutine(PlaySteps());
         }
     }
 
@@ -157,5 +172,26 @@ public class BasePlayer : MonoBehaviour, IDamage
         yield return new WaitForSeconds(duration);
         characterController.SetSens(baseSens);
         speed = baseSpeed;
+    }
+
+    public void PlayJump()
+    {
+        aud.PlayOneShot(audJump[Random.Range(0, audJump.Length - 1)], audJumpVol);
+    }
+    public void PlayHurt()
+    {
+        aud.PlayOneShot(audHurt[Random.Range(0, audHurt.Length - 1)], audHurtVol);
+    }
+    public IEnumerator PlaySteps()
+    {
+        GameManager.instance.basePlayer.playingSteps = true;
+        aud.PlayOneShot(audSteps[Random.Range(0, audSteps.Length - 1)], audStepsVol);
+
+        if (!GameManager.instance.basePlayer.isSprinting)
+            yield return new WaitForSeconds(0.5f);
+        else
+            yield return new WaitForSeconds(0.3f);
+
+        GameManager.instance.basePlayer.playingSteps = false;
     }
 }

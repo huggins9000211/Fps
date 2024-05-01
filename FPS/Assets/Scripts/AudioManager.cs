@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [Header("----- AM -----")]
-    public static AudioManager instance;
-    
     [Header("----- Components -----")]
     [SerializeField] AudioSource aud;
 
@@ -22,11 +19,6 @@ public class AudioManager : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        instance = this;
-    }
 
     public void PlayJump()
     {
