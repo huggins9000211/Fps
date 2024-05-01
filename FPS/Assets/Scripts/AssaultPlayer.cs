@@ -35,14 +35,32 @@ public class AssaultPlayer : BasePlayer
         mainCamera = Camera.main;
         base.Movement();
         SelectGun();
-        if (Input.GetButton("Fire1") & !isShooting)
+        if (Input.GetButton("Fire1") && !isShooting && gunList.Count > 0)
         {
-            StartCoroutine(Shoot1());
+            if (gunList[selectedGun].ammoCur > 0)
+            {
+                StartCoroutine(Shoot1());
+                gunList[selectedGun].ammoCur--;
+                UpdateAmmoUI();
+            }
+            else
+            {
+                StartCoroutine(Reload());
+            }
         }
-        else if (Input.GetButton("Fire2") & !granadeOnCD)
+        else if (Input.GetButton("Fire2") && !granadeOnCD)
         {
             StartCoroutine(Shoot2());
         }
+    }
+
+    IEnumerator Reload()
+    {
+        isShooting = true;
+        yield return new WaitForSeconds(gunList[selectedGun].reloadSpeed);
+        gunList[selectedGun].ammoCur = gunList[selectedGun].ammoMax;
+        UpdateAmmoUI();
+        isShooting = false;
     }
 
     IEnumerator Shoot1()
@@ -75,21 +93,27 @@ public class AssaultPlayer : BasePlayer
     }
     void SelectGun()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1 && !isShooting)
         {
             selectedGun++;
             ChangeGun(gunList[selectedGun]);
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0 && !isShooting)
         {
             selectedGun--;
             ChangeGun(gunList[selectedGun]);
         }
     }
 
+    void UpdateAmmoUI()
+    {
+        GameManager.instance.ammoCurText.text = gunList[selectedGun].ammoCur.ToString("F0");
+        GameManager.instance.ammoMaxText.text = gunList[selectedGun].ammoMax.ToString("F0");
+    }
+
     void ChangeGun(GunStats gun)
     {
-
+        UpdateAmmoUI();
         bullet = gun.bullet;
         shootRate = gun.shootRate;
 

@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] int winNumber;
 
     [Header("----- Ammo -----")]
-    [SerializeField] TMP_Text ammoCurText;
-    [SerializeField] TMP_Text ammoMaxText;
+    public TMP_Text ammoCurText;
+    public TMP_Text ammoMaxText;
 
     [Header("----- Player/NPCs -----")]
     public BasePlayer basePlayer;
