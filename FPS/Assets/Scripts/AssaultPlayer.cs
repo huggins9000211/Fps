@@ -6,6 +6,7 @@ public class AssaultPlayer : BasePlayer
 {
     // Start is called before the first frame update
     [SerializeField] Transform shootPos;
+    [SerializeField] GameObject gunModel;
     [SerializeField] float shootRate;
     [SerializeField] GameObject bullet;
     [SerializeField] GameObject grenade;
@@ -16,6 +17,8 @@ public class AssaultPlayer : BasePlayer
     bool granadeOnCD;
     Recoil recoilScript;
     Camera mainCamera;
+    List<GunStats> gunList = new List<GunStats>();
+    int selectedGun;
 
     // Start is called before the first frame update
     public override void Start()
@@ -31,7 +34,7 @@ public class AssaultPlayer : BasePlayer
     {
         mainCamera = Camera.main;
         base.Movement();
-
+        SelectGun();
         if (Input.GetButton("Fire1") & !isShooting)
         {
             StartCoroutine(Shoot1());
@@ -62,5 +65,35 @@ public class AssaultPlayer : BasePlayer
         rb.AddForce(finalThrowDirection * grenadeVelocity, ForceMode.VelocityChange);
         yield return new WaitForSeconds(grenadeCD);
         granadeOnCD = false;
+    }
+
+    public void getGunStats(GunStats gun)
+    {
+        gunList.Add(gun);
+        selectedGun = gunList.Count - 1;
+        ChangeGun(gun);
+    }
+    void SelectGun()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && selectedGun < gunList.Count - 1)
+        {
+            selectedGun++;
+            ChangeGun(gunList[selectedGun]);
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
+        {
+            selectedGun--;
+            ChangeGun(gunList[selectedGun]);
+        }
+    }
+
+    void ChangeGun(GunStats gun)
+    {
+
+        bullet = gun.bullet;
+        shootRate = gun.shootRate;
+
+        gunModel.GetComponent<MeshFilter>().sharedMesh = gun.gunModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModel.GetComponent<MeshRenderer>().sharedMaterial = gun.gunModel.GetComponent<MeshRenderer>().sharedMaterial;
     }
 }

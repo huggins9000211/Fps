@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     [Header("----- Player/NPCs -----")]
     public BasePlayer basePlayer;
+    public AssaultPlayer assaultPlayer;
     public GameObject player;
     public GameObject npc1;
     public GameObject npc2;
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 player = SpawnAssault(true);
+                assaultPlayer = player.GetComponent<AssaultPlayer>();
                 npc1 = SpawnNinja(false);
                 npc2 = SpawnSniper(false);
                 npc3 = SpawnReaper(false);

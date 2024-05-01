@@ -75,7 +75,7 @@ public class BaseNPC : MonoBehaviour, IDamage
         hP -= amount;
         anim1.SetTrigger("Damage");
         StartCoroutine(FlashRed());
-        if (hP <= 0)
+        if (hP <= 0 && canTakeDmg)
         {
             canTakeDmg = false;
             string sourceTag = sourse.tag;

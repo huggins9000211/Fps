@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7529351852051410897}
   - component: {fileID: 1031209737190419115}
   m_Layer: 0
-  m_Name: AssultBullet
+  m_Name: AssultBulletAuto
   m_TagString: Assult
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1031209737190419115}
-  damage: 5
+  damage: 7
   speed: 20
   destroyTime: 20
   hitEffect: {fileID: 5512684576593806731, guid: 33adade2560d524429d96b20a80ce04d, type: 3}
