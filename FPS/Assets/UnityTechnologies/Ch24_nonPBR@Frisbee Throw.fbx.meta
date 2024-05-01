@@ -56,14 +56,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.48237494
-        functionName: CreateBullet
-        data: 
-        objectReferenceParameter: {fileID: 1245360488091752, guid: 4f364019ba9360f4580a8b3cb3c78a29, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
