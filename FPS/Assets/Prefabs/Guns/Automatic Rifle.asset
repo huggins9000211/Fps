@@ -18,3 +18,4 @@ MonoBehaviour:
   ammoMax: 30
   ammoCur: 0
   reloadSpeed: 1
+  bulletSize: 1
