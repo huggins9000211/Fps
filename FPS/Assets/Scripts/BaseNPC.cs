@@ -80,10 +80,19 @@ public class BaseNPC : MonoBehaviour, IDamage
         hP -= amount;
         anim1.SetTrigger("Damage");
         StartCoroutine(FlashRed());
+        string sourceTag = sourse.tag;
+
+
+        if (sourceTag == GameManager.instance.player.tag) 
+        {
+            StartCoroutine(FlashHitmarker());
+        }
+
+
         if (hP <= 0 && canTakeDmg)
         {
             canTakeDmg = false;
-            string sourceTag = sourse.tag;
+           
             if (sourceTag == "Assult")
             {
                 GameManager.instance.AddScore(0, 1);
@@ -117,6 +126,15 @@ public class BaseNPC : MonoBehaviour, IDamage
         model.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         model.material.color = Color.white;
+    }
+
+
+    IEnumerator FlashHitmarker()
+    {
+       
+        GameManager.instance.Hitmarker.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        GameManager.instance.Hitmarker.SetActive(false);
     }
 
     public void Stun(float duration)

@@ -29,7 +29,10 @@ public class Shuriken : MonoBehaviour
             dmg.TakeDamage(damage, gameObject);
           
         }
-        Destroy(gameObject);
+        if (other.gameObject.tag != "Ninja")
+        {
+            Destroy(gameObject);
+        }
 
     }
 }

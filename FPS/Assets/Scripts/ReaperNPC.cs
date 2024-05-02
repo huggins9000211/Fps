@@ -8,7 +8,7 @@ public class ReaperNPC : BaseNPC
     [SerializeField] GameObject weponPos;
     [SerializeField] float swingRate;
     [SerializeField] float swingTime;
-    [SerializeField] MeshRenderer mr;
+    [SerializeField] SkinnedMeshRenderer mr;
 
     [SerializeField] Animator anim;//djadd
     [SerializeField] int animSpeedTrans;//djadd

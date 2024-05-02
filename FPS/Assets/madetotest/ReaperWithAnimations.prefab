@@ -214,13 +214,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 1557751352420043015}
-  hP: 1000
+  hP: 200
   anim1: {fileID: 6461861159764418283}
   target: {fileID: 0}
   weponPos: {fileID: 6876486791780060990}
   swingRate: 15
   swingTime: 15
-  mr: {fileID: 8642204335707479678}
+  mr: {fileID: 1557751352420043015}
   anim: {fileID: 6461861159764418283}
   animSpeedTrans: 4
   weaponCol: {fileID: 6036972309984430509}
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 4120577224572200802}
   m_Layer: 0
   m_Name: Staff
-  m_TagString: Untagged
+  m_TagString: Reaper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -58,10 +58,10 @@ public class SniperNPC : BaseNPC
 
             if (isShooting == false)
                 StartCoroutine(Shoot1());
-            //if(granadeOnCD == false)
-            //{
-            //    StartCoroutine(Shoot2());
-            //}
+            if (mineOnCD == false)
+            {
+                StartCoroutine(Shoot2());
+            }
         }
     }
     void FaceTarget()

@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text SniperScoreHUD;
     [SerializeField] TMP_Text whoWon;
     [SerializeField] int winNumber;
+    public GameObject Hitmarker;
 
     [Header("----- Ammo -----")]
     [SerializeField] GameObject AmmoUI;

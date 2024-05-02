@@ -1075,7 +1075,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 4738698278397141595}
-  hP: 3
+  hP: 200
+  anim1: {fileID: 0}
   target: {fileID: 0}
   anim: {fileID: 6544209826919297563}
   animSpeedTrans: 4

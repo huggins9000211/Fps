@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 5178986912450875334}
-  hP: 1000
+  hP: 200
   anim1: {fileID: 8756081604347927896}
   target: {fileID: 0}
   anim: {fileID: 8756081604347927896}
